@@ -1,7 +1,16 @@
 [project]
 name = "rag-performance-optimization-system"
 version = "0.1.0"
-description = "Add your description here"
+description = "A modular RAG system focused on measuring, analyzing, and optimizing retrieval, generation, latency, token usage, and resource efficiency."
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = []
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "ruff",
+    "mypy",
+    "pyright",
+    "pre-commit",
+]
