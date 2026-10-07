@@ -14,3 +14,18 @@ dev = [
     "pyright",
     "pre-commit",
 ]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "F",
+    "I",
+]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
