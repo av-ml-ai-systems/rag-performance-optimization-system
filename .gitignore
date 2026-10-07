@@ -9,4 +9,10 @@ wheels/
 # Virtual environments
 .venv
 
+# Tool caches
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# Local dependency notes
 req.txt
