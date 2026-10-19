@@ -2,453 +2,277 @@
 
 ## Project Roadmap & Learning Blueprint
 
+**Version:** Revised Blueprint  
+**Core focus:** RAG Engineering, Object-Oriented Programming, Software Engineering, Performance Optimization, Testing, and Evidence-Based Engineering.
+
 ---
 
 # 1. Project Definition
 
-## 1.1 Project Name
+## 1.1 Project Identity
 
-**RAG Performance Optimization System**
+- **Project name:** RAG Performance Optimization System
+- **Repository:** `rag-performance-optimization-system`
+- **Project type:** Practical AI/ML engineering project focused on building, measuring, analyzing, and optimizing a modular Retrieval-Augmented Generation (RAG) system.
 
-## 1.2 Repository Name
+## 1.2 Central Engineering Question
 
-`rag-performance-optimization-system`
+> Can we build a clean, modular, object-oriented RAG system and systematically measure and optimize its performance and resource usage without unnecessarily sacrificing answer quality or useful behavior?
 
-## 1.3 Project Type
+## 1.3 Core Engineering Loop
 
-A practical AI/ML engineering project focused on building, measuring, analyzing, and optimizing a modular Retrieval-Augmented Generation (RAG) system.
+The project begins with a deliberately simple **Naive RAG baseline**. Optimization follows only after the system's behavior has been measured and understood.
+
+**Build → Measure → Understand → Identify Bottleneck → Form Hypothesis → Optimize → Measure Again → Validate Quality → Keep or Reject**
+
+An optimization is successful only when its benefits justify its trade-offs in quality, resource consumption, maintainability, and complexity.
+
+## 1.4 Project Dimensions
 
 The project combines:
 
-* RAG engineering
-* Python software engineering
-* Performance engineering
-* Observability and measurement
-* Controlled optimization experiments
-* Testing and validation
-* API development
-* Lightweight frontend development
-
-## 1.4 Central Engineering Question
-
-> **Can we build a clean, modular RAG system and systematically measure and optimize its performance and resource usage without unnecessarily sacrificing useful behavior?**
-
-## 1.5 Core Idea
-
-The project will begin with a deliberately simple **Naive RAG system**.
-
-We will first establish a reliable baseline and then use measurement and controlled experiments to identify meaningful optimization opportunities.
-
-The project will follow this general engineering loop:
-
-**Build → Measure → Understand → Identify bottleneck → Form hypothesis → Optimize → Measure again → Validate quality → Keep or reject the optimization**
-
-The objective is **not simply to make the system faster or cheaper**.
-
-An optimization is considered successful only when its performance or resource benefit is meaningful while useful system behavior is preserved.
+- RAG engineering and local LLM integration.
+- Python and object-oriented software engineering.
+- Clean Code and SOLID principles.
+- Testing, static analysis, and maintainable architecture.
+- Performance measurement and observability.
+- Controlled optimization experiments.
+- FastAPI backend and lightweight React interface.
+- Git/GitHub workflow and professional documentation.
 
 ---
 
 # 2. Project Objectives
 
-The project has four major objectives.
-
 ## 2.1 RAG Engineering Objective
 
-Build a modular RAG application using:
+Build a functional, modular RAG application using:
 
-* LangChain
-* Hugging Face / Sentence Transformers
-* ChromaDB
-* Ollama
-* A practical LLaMA-family local model
+- LangChain.
+- Hugging Face / Sentence Transformers.
+- ChromaDB.
+- Ollama.
+- A practical local LLaMA-family model.
 
-The system should support:
+The baseline must support document ingestion, chunking, embedding generation, vector storage, retrieval, context and prompt construction, LLM generation, and returning answers with useful retrieval information.
 
-* Document ingestion
-* Document chunking
-* Embedding generation
-* Vector storage
-* Retrieval
-* Context construction
-* Prompt construction
-* LLM generation
-* Returning the answer together with useful retrieval information
-
-The purpose is not to build the most sophisticated RAG architecture possible.
-
-The purpose is to establish a **controlled and understandable RAG system** that can subsequently be measured and optimized.
+The objective is to understand and establish a controlled RAG system, not to implement the most sophisticated architecture possible.
 
 ## 2.2 Performance Optimization Objective
 
-Systematically investigate relevant performance and resource dimensions.
+Investigate meaningful performance and resource dimensions, selected according to baseline evidence.
 
-### Generation / LLM-side optimization
+**LLM and generation candidates:**
 
-* Token usage
-* Context size
-* Caching
-* Streaming
-* Time to First Token (TTFT)
-* Generation latency
-* Resource efficiency
-* Model selection or routing when justified
+- Token usage and context size.
+- Caching and streaming.
+- Time to First Token (TTFT) and generation latency.
+- Resource efficiency.
+- Model selection or routing, when justified.
 
-### RAG / Retrieval-side optimization
+**RAG and retrieval candidates:**
 
-* Chunking efficiency
-* Retrieval parameters
-* Embedding efficiency
-* Vector search
-* Retrieval latency
-* End-to-end RAG latency
-* Embedding resource usage
+- Chunking efficiency.
+- Retrieval parameters and vector-search behavior.
+- Embedding efficiency and resource usage.
+- Retrieval latency and end-to-end RAG latency.
 
-The project will **not assume that every possible optimization must be implemented**.
-
-Baseline measurements will determine which optimization experiments are relevant and valuable.
+Not every candidate must be implemented. Experiments are selected according to their expected value, measured bottlenecks, and implementation cost.
 
 ## 2.3 Software Engineering Objective
 
-Develop the project using professional Python software engineering practices.
+Professional software engineering is a **first-class project objective**, not merely a supporting activity.
 
-This is a **first-class objective of the project**, not merely a supporting concern.
+The implementation must apply the following principles pragmatically:
 
-The implementation should emphasize:
+- Object-Oriented Programming (OOP) from the beginning of Phase 2.
+- Clean Code and SOLID principles.
+- Separation of concerns, high cohesion, and low coupling.
+- Encapsulation, abstraction, and polymorphism where useful.
+- Composition and dependency injection where justified.
+- Dependency inversion and appropriate interfaces or protocols.
+- Clear class responsibilities and module boundaries.
+- Type hints, meaningful naming, focused functions, and cohesive modules.
+- Explicit configuration, appropriate exception handling, logging, and testability.
+- DRY and KISS, without premature abstraction or unnecessary complexity.
 
-* Clean Code
-* SOLID principles
-* Separation of concerns
-* Modular architecture
-* High cohesion and low coupling
-* Dependency inversion
-* Dependency injection where justified
-* Appropriate use of interfaces and protocols
-* Type hints
-* Clear naming
-* Small and focused functions
-* Small and cohesive modules
-* Explicit configuration
-* Appropriate exception handling
-* Testability
-* Maintainability
-* Reusability where genuinely justified
-* DRY where appropriate
-* KISS
-* Avoidance of premature abstraction
-* Avoidance of unnecessary complexity
+The project will also use Git/GitHub, pytest, Ruff, MyPy, Pyright, pre-commit, automated quality checks, meaningful commits, and clear documentation.
 
-The project should also use professional development and quality practices, including:
-
-* Git and GitHub
-* pytest
-* Ruff
-* MyPy
-* Pyright
-* pre-commit
-* Automated quality checks
-* Meaningful commits
-* Clear documentation
-
-### Engineering Principle
-
-> **The goal is not to make the code as abstract or sophisticated as possible. The goal is to make it clean, understandable, maintainable, testable, and appropriately designed for the actual problem.**
+**Engineering principle:** The goal is not to maximize the number of classes or abstractions. The goal is clean, understandable, maintainable, testable software designed appropriately for the actual problem.
 
 ## 2.4 Learning Objective
 
 By the end of the project, the user should be able to:
 
-* Explain the complete RAG architecture
-* Explain the role of each major technology
-* Understand the important Python code written during the project
-* Explain why important abstractions exist
-* Explain why unnecessary abstractions were avoided
-* Apply Clean Code principles in a real project
-* Apply SOLID principles appropriately rather than mechanically
-* Design modular Python components
-* Write and understand automated tests
-* Measure system performance
-* Identify performance bottlenecks
-* Design controlled optimization experiments
-* Interpret optimization results
-* Understand performance/quality trade-offs
-* Defend architectural and engineering decisions in a technical interview
+- Explain the complete RAG architecture and each major technology.
+- Understand and explain the important Python classes, functions, modules, and dependencies.
+- Design cohesive classes with clear responsibilities.
+- Explain encapsulation, abstraction, composition, dependency injection, and relevant SOLID principles.
+- Recognize when an abstraction helps and when it introduces unnecessary complexity.
+- Apply Clean Code, OOP, and software testing in a real project.
+- Measure performance, identify bottlenecks, and design controlled experiments.
+- Interpret results and performance/quality trade-offs.
+- Defend architectural and optimization decisions in a technical interview.
 
-The project should therefore produce both:
-
-**A working system**
-and
-**a strong understanding of how and why the system was built.**
+The project must produce both **a working system** and **a strong understanding of how and why it was built**.
 
 ---
 
-# 3. Scope & Boundaries
+# 3. Scope and Boundaries
 
-The scope of the project must remain controlled throughout development.
+## 3.1 Core Scope
 
-## 3.1 Core Project Scope
+The project includes:
 
-The project must include:
-
-* A working Naive RAG system
-* Document ingestion
-* Chunking
-* Embeddings
-* ChromaDB vector storage
-* Retrieval
-* LLM generation through Ollama
-* LangChain as a significant practical component
-* Hugging Face / Sentence Transformers
-* Professional Python architecture
-* Software engineering practices
-* Automated testing
-* Performance measurement
-* Baseline performance analysis
-* Selected LLM/generation optimization experiments
-* Selected RAG optimization experiments
-* FastAPI backend
-* Small React interface
-* Lightweight performance/experiment information
-* Regression and quality validation
-* Git/GitHub workflow
-* Professional project documentation
+- A working Naive RAG system.
+- Document ingestion, chunking, embeddings, ChromaDB, retrieval, and Ollama generation.
+- Meaningful use of LangChain and Hugging Face / Sentence Transformers.
+- Object-oriented Python architecture and professional software engineering.
+- Automated testing, static analysis, and quality checks.
+- Baseline measurement, observability, and selected optimization experiments.
+- FastAPI backend and lightweight React interface.
+- Regression validation, Git/GitHub workflow, and professional documentation.
 
 ## 3.2 Software Engineering Scope
 
-Software engineering is an explicit part of the project scope.
+OOP, Clean Code, SOLID, modularity, dependency management, type safety, configuration, error handling, logging, testing, and maintainable Git history are explicit project requirements.
 
-The implementation should apply, where appropriate:
+These practices will evolve progressively as requirements and real implementation needs become clear.
 
-* Clean Architecture principles
-* SOLID principles
-* Clean Code practices
-* Separation of concerns
-* Dependency inversion
-* Dependency injection
-* Modular design
-* Type safety
-* Unit testing
-* Integration testing
-* API testing
-* Static analysis
-* Linting and formatting
-* Pre-commit quality checks
-* Configuration management
-* Error handling
-* Logging and observability
-* Maintainable Git history
+The baseline will be designed with appropriate class responsibilities and component boundaries from the beginning. Phase 3 will strengthen and validate the architecture rather than introduce OOP for the first time.
 
-These practices should be introduced **progressively as the project evolves**, rather than attempting to design the entire architecture before the actual requirements are understood.
+## 3.3 Conditional and Experimental Scope
 
-## 3.3 Conditional / Experimental Scope
+The following are optional candidates, not initial requirements:
 
-The following are possible experiments or improvements but are **not mandatory from the beginning**:
+- Response caching and streaming.
+- Model or embedding-model comparison.
+- Model routing.
+- Context compression.
+- Retrieval parameter and chunking optimization.
+- Additional retrieval experiments and performance instrumentation.
 
-* Response caching
-* Streaming
-* Model comparison
-* Model routing
-* Advanced context compression
-* Embedding model comparison
-* Retrieval parameter optimization
-* Additional retrieval experiments
-* Additional performance instrumentation
-
-Their inclusion will depend on the baseline measurements, project scope, available time, and whether they provide meaningful learning or optimization value.
+Their implementation depends on measured evidence, available time, learning value, and whether the benefits justify the complexity.
 
 ## 3.4 Out of Scope
 
-The following will not be part of the core project:
+The core project excludes:
 
-* Agentic RAG
-* GraphRAG
-* Multi-agent systems
-* LangGraph
-* Hybrid search
-* Complex query rewriting
-* Multi-query retrieval
-* Reranking unless a strong project-specific justification emerges
-* Fine-tuning
-* Multimodal RAG
-* Cloud deployment
-* Kubernetes
-* Distributed systems
-* Enterprise-scale architecture
-* Full evaluation platforms
-* RAGAS
-* LLM-as-a-judge infrastructure
-* Comprehensive guardrail systems
-* LangSmith as a required dependency
+- Agentic RAG, GraphRAG, multi-agent systems, and LangGraph.
+- Hybrid search, complex query rewriting, and multi-query retrieval.
+- Reranking unless a strong project-specific justification emerges.
+- Fine-tuning and multimodal RAG.
+- Cloud deployment, Kubernetes, distributed systems, and enterprise-scale architecture.
+- Full evaluation platforms, RAGAS, and LLM-as-a-judge infrastructure.
+- Comprehensive guardrail systems.
+- LangSmith as a required dependency.
 
-The project is about **RAG performance engineering and optimization**, not about implementing every modern RAG technique.
+The project focuses on **RAG performance engineering and optimization**, not implementing every available RAG technique.
 
 ---
 
 # 4. Learning Strategy
 
-## 4.1 Core Learning Principle
+## 4.1 Learning Ownership
 
-> **The user writes and owns the Python code.**
+**The user writes, understands, and owns the Python code.**
 
-The implementation process will prioritize understanding over speed.
+ChatGPT provides explanations, architectural reasoning, focused examples, implementation guidance, debugging assistance, code review, testing guidance, and engineering feedback.
 
-ChatGPT will provide:
-
-* Explanations
-* Architectural reasoning
-* Small focused code examples
-* Implementation guidance
-* Code review
-* Debugging assistance
-* Testing guidance
-* Engineering feedback
-
-Large blocks of generated implementation code will be avoided.
+Large blocks of opaque generated code should be avoided.
 
 ## 4.2 Implementation Learning Loop
 
-Each meaningful implementation step will follow this process:
+Every meaningful implementation step follows:
 
-**Understand → Design → Small implementation step → User writes/assembles the code → Run → Test → Review → Fix/understand → Quality checks → Commit**
+**Understand → Design → Small Implementation Step → User Implements → Run → Test → Review → Fix and Understand → Quality Checks → Commit**
 
-Only after the current step is understood and validated will the project move forward.
+Progression depends on validating the current step.
 
-## 4.3 Python Learning Principles
+## 4.3 Python and OOP Learning
 
-Throughout the project, particular attention will be given to:
+The project will progressively teach and apply:
 
-* Writing readable Python
-* Understanding Python language features rather than copying patterns
-* Type hints
-* Functions and classes
-* Modules and packages
-* Exceptions
-* Interfaces and protocols
-* Dependency injection
-* Composition
-* Testing
-* Configuration
-* File and project organization
-* Maintainability
-* Refactoring
+- Python functions, classes, modules, and packages.
+- Encapsulation, abstraction, inheritance when appropriate, and polymorphism when useful.
+- Composition and class relationships.
+- Interfaces, protocols, and dependency injection.
+- Type hints and static type checking.
+- Exceptions, configuration, and file organization.
+- Unit and integration testing.
+- Refactoring, maintainability, and modular design.
 
-When a Python construct is unfamiliar, it will be explained before becoming part of the implementation.
+Every important class must have a clear responsibility. Dependencies should be explicit and replaceable when there is a concrete benefit, especially for testing and experimentation.
 
-## 4.4 Software Engineering Learning Principles
+**OOP does not mean turning every function or data structure into a class.** The design should use classes where they improve cohesion, encapsulation, replaceability, or testability.
 
-The project will be used to practice software engineering principles in a real context.
+Unfamiliar Python constructs and design decisions must be explained before becoming part of the implementation.
 
-The emphasis will be on understanding:
+## 4.4 Software Engineering Learning
 
-* **Why** a design decision is necessary
-* **What problem** an abstraction solves
-* **What complexity** it introduces
-* **When** a principle should be applied
-* **When not** to apply it
-* How different design decisions affect maintainability and testability
+For every important design decision, ask:
 
-SOLID and Clean Code will therefore be treated as **engineering tools**, not rules to apply mechanically.
+- Why is it necessary?
+- What problem does it solve?
+- What complexity does it introduce?
+- When should the principle be applied?
+- When would a simpler approach be better?
+- How does it affect maintainability and testability?
 
-## 4.5 Scope-Control Principle
+SOLID and Clean Code are engineering tools, not mechanical checklists.
 
-The project should not become increasingly complex simply because additional technologies or techniques are available.
+## 4.5 Scope Control and Validation
 
-The default question for any proposed addition should be:
+Every proposed addition should directly support a project objective, provide significant learning value, validate an important hypothesis, or solve a concrete problem.
 
-> **Does this directly support the project's objective or provide significant learning value without creating disproportionate complexity?**
+Each phase requires explicit technical and learning validation. The fact that code runs is not sufficient.
 
-If the answer is no, the feature should remain outside the project.
+Validation may include functional tests, unit and integration tests, quality checks, retrieval checks, performance measurements, regression checks, manual review, architectural review, and demonstrated understanding.
 
-## 4.6 Validation Before Progression
-
-Each phase should have explicit validation criteria.
-
-We should not move to the next major phase simply because the code "runs."
-
-Validation may include:
-
-* Functional tests
-* Unit tests
-* Integration tests
-* Quality checks
-* Performance measurements
-* Retrieval checks
-* Regression checks
-* Manual inspection
-* Architectural review
-* Understanding of the implemented code
-
-A phase is complete when its **technical outcome and learning outcome** have been sufficiently validated.
+---
 
 # 5. Technical Architecture
 
 ## 5.1 Architectural Objective
 
-The architecture should provide a clean separation between:
+Establish clear boundaries between:
 
-* User interface
-* API layer
-* Application/use-case logic
-* Domain concepts
-* RAG components
-* Infrastructure implementations
-* Observability
-* Optimization mechanisms
+- User interface.
+- API layer.
+- Application and use-case logic.
+- Domain concepts and contracts.
+- RAG components.
+- Infrastructure implementations.
+- Observability and optimization mechanisms.
 
-The architecture should remain **simple enough to understand and evolve**, while providing appropriate boundaries for testing and optimization.
-
-The project should avoid both extremes:
-
-* A monolithic implementation where everything is coupled together
-* An unnecessarily complex enterprise architecture with abstractions that the project does not need
-
----
+The architecture must remain simple, understandable, testable, and extensible without unnecessary enterprise complexity.
 
 ## 5.2 High-Level Architecture
 
 The initial architectural direction is:
 
 ```text
-┌──────────────────────┐
-│      React UI        │
-└──────────┬───────────┘
-           │ HTTP
-           ▼
-┌──────────────────────┐
-│      FastAPI         │
-│      API Layer       │
-└──────────┬───────────┘
-           │
-           ▼
-┌──────────────────────┐
-│ Application Layer    │
-│      Use Cases       │
-└──────────┬───────────┘
-           │
-           ▼
-┌──────────────────────┐
-│   Domain / Contracts │
-└──────────┬───────────┘
-           │
-           ▼
-┌─────────────────────────────────┐
-│       Infrastructure / RAG      │
-│                                 │
-│ LangChain                       │
-│ ChromaDB                        │
-│ Hugging Face                    │
-│ Ollama                          │
-│ Cache                           │
-└─────────────────────────────────┘
+React UI
+   │ HTTP
+   ▼
+FastAPI — API Layer
+   ▼
+Application Layer — Use Cases
+   ▼
+Domain Concepts / Contracts
+   ▲
+   │ Implementations
+Infrastructure / RAG Components
+   ├── LangChain
+   ├── ChromaDB
+   ├── Hugging Face / Sentence Transformers
+   ├── Ollama
+   └── Optional Cache
 ```
 
-This is an initial architectural model. The exact module and package structure will be refined during implementation.
+This is a conceptual model. The precise package and module structure will be confirmed during implementation.
 
----
-
-## 5.3 RAG Data Flow
-
-The core RAG pipeline will initially follow:
+## 5.3 Baseline RAG Data Flow
 
 ```text
 Documents
@@ -457,7 +281,7 @@ Document Loading
     ↓
 Chunking
     ↓
-Embeddings
+Embedding Generation
     ↓
 ChromaDB
     ↓
@@ -467,127 +291,85 @@ Retrieved Context
     ↓
 Prompt Construction
     ↓
-Ollama / LLaMA Model
+Ollama / Local LLM
     ↓
-Answer
+Answer + Retrieval Information
 ```
 
-The baseline should remain intentionally simple.
-
-This allows us to establish a controlled reference system before introducing optimization techniques.
-
----
-
-## 5.4 Application Flow
-
-A typical user request should follow a structure similar to:
+## 5.4 Application Request Flow
 
 ```text
 User Question
-      ↓
+    ↓
 FastAPI Endpoint
-      ↓
+    ↓
 Application Use Case
-      ↓
+    ↓
 RAG Pipeline
-      ↓
-Retriever
-      ↓
-Context Construction
-      ↓
+    ↓
+Retrieval and Context Construction
+    ↓
 LLM Generation
-      ↓
+    ↓
 Performance Measurement
-      ↓
+    ↓
 RAG Result
-      ↓
+    ↓
 API Response
-      ↓
+    ↓
 React UI
 ```
 
-FastAPI route handlers should remain thin.
+API route handlers must remain thin. They validate and coordinate requests, then delegate application behavior to appropriate use cases.
 
-They should coordinate the request and delegate the actual application behavior to the appropriate application/use-case components.
+## 5.5 Object-Oriented Design and Component Responsibilities
 
----
+OOP must be applied from the beginning of Phase 2.
 
-## 5.5 Architectural Boundaries
+The initial design process must identify class responsibilities, relationships, module boundaries, dependency direction, and testability before implementation.
 
-The project should maintain clear boundaries between major responsibilities.
+Potential component responsibilities include:
 
-### API Layer
+- **Document loading:** read and normalize source documents.
+- **Chunking:** divide documents into appropriate text segments.
+- **Embeddings:** generate vector representations of text.
+- **Vector storage:** persist embeddings and metadata.
+- **Retrieval:** find relevant chunks for a query.
+- **Context construction:** assemble retrieved information.
+- **Prompt construction:** prepare the input supplied to the LLM.
+- **Generation:** invoke the configured local model.
+- **RAG pipeline:** coordinate the end-to-end workflow.
 
-Responsible for:
+These are responsibilities, not a mandatory one-class-per-operation rule. The final class design must be documented and approved before implementation.
 
-* HTTP endpoints
-* Request validation
-* Response schemas
-* HTTP-level errors
-* API concerns
+Use encapsulation, composition, and dependency injection when they provide clear value. Avoid unnecessary inheritance hierarchies, factories, interfaces, or abstractions created solely to follow a pattern.
 
-It should not contain:
+## 5.6 Architectural Layers
 
-* RAG logic
-* ChromaDB implementation details
-* prompt construction
-* optimization logic
-* business/application rules
+**API layer**
 
-### Application Layer
+- HTTP endpoints, request validation, response schemas, and HTTP-level errors.
+- No direct implementation of RAG workflows, prompt construction, or application rules.
 
-Responsible for:
+**Application layer**
 
-* Use cases
-* Application workflows
-* Coordinating domain and infrastructure components
-* Controlling the execution flow
+- Use cases, workflow coordination, and execution control.
+- Potential use cases include `AskQuestion`, `IngestDocuments`, `RunExperiment`, and `RetrieveExperimentResults`, subject to actual requirements.
 
-Examples may include:
+**Domain layer**
 
-* AskQuestion
-* IngestDocuments
-* RunExperiment
-* RetrieveExperimentResults
+- Framework-independent concepts and contracts where justified.
+- Possible concepts include `Question`, `RetrievedDocument`, `RetrievedContext`, `Answer`, `RAGResult`, and `ExperimentResult`.
+- These are candidates, not mandatory classes.
 
-The exact use cases will be determined during implementation.
+**Infrastructure layer**
 
-### Domain Layer
+- Integrations with LangChain, ChromaDB, Hugging Face, Ollama, the filesystem, persistence, and optional caching.
+- External implementation details should not unnecessarily leak into the application layer.
 
-Responsible for concepts and contracts that should not depend unnecessarily on external frameworks.
+## 5.7 Dependency Direction and Inversion
 
-Possible concepts include:
-
-* Question
-* RetrievedDocument
-* RetrievedContext
-* Answer
-* RAGResult
-* ExperimentResult
-
-These are preliminary candidates rather than mandatory classes.
-
-### Infrastructure Layer
-
-Responsible for external technologies and implementations, such as:
-
-* LangChain
-* ChromaDB
-* Hugging Face
-* Ollama
-* caching mechanisms
-* filesystem access
-* persistence
-
-The application layer should not need to understand the internal details of these technologies.
-
----
-
-## 5.6 Dependency Direction
-
-A key architectural principle is to avoid unnecessary coupling toward infrastructure.
-
-The preferred conceptual dependency direction is:
+Prefer dependencies on stable contracts where doing so improves the design.
 
 ```text
 API
@@ -599,413 +381,125 @@ Domain / Contracts
 Infrastructure Implementations
 ```
 
-Infrastructure may implement contracts required by the application.
+Infrastructure implementations may satisfy contracts needed by the application. The application should not become tightly coupled to a specific vector database, LLM runtime, or framework implementation without a good reason.
 
-The application should not become tightly coupled to ChromaDB, Ollama, or a particular LangChain implementation merely because those technologies are used internally.
+Dependency inversion and interfaces must be introduced selectively. Not every class needs an interface.
 
-However, dependency inversion should be applied **only where it provides real value**.
+## 5.8 Observability and Optimization Boundaries
 
-We will not create interfaces for every class simply to satisfy a theoretical architecture.
+Keep measurement and optimization mechanisms separate from core RAG responsibilities where practical.
 
----
+Potential measurement dimensions include latency, token usage, context size, errors, and resource consumption. Potential optimization mechanisms include caching, retrieval configuration, context reduction, and streaming.
 
-## 5.7 Optimization Architecture
-
-Optimization mechanisms should remain separate from the core RAG reasoning whenever practical.
-
-Conceptually:
-
-```text
-                  RAG Application
-                        │
-          ┌─────────────┼─────────────┐
-          │             │             │
-       Retrieval     Generation    Context
-          │             │             │
-          └─────────────┼─────────────┘
-                        │
-                 Measurement
-                        │
-          ┌─────────────┴─────────────┐
-          │                           │
-     Observability              Optimization
-          │                           │
-     latency                    caching
-     tokens                     retrieval
-     TTFT                       context
-     errors                     embeddings
-     timing                     streaming
-```
-
-This separation allows us to experiment with optimization strategies without rewriting the entire RAG application.
-
----
-
-## 5.8 Architecture Principle: Baseline First
-
-The baseline architecture should remain as simple as reasonably possible.
-
-We should not introduce:
-
-* caching
-* routing
-* complex retrieval strategies
-* advanced compression
-* elaborate abstraction layers
-
-before we have established whether they are necessary.
-
-The baseline provides the controlled reference against which later changes can be evaluated.
-
----
+The architecture should support controlled experiments without requiring a rewrite of the entire system.
 
 ## 5.9 Architecture Evolution
 
-The architecture is intentionally evolutionary.
+Follow an evolutionary design approach:
 
-We will follow:
+**Simple requirement → Simple implementation → Real problem discovered → Justified abstraction or refactor → Test → Continue**
 
-```text
-Simple requirement
-      ↓
-Simple implementation
-      ↓
-Actual problem discovered
-      ↓
-Refactor / introduce abstraction
-      ↓
-Test
-      ↓
-Continue
-```
+Do not build a large abstraction hierarchy to anticipate every hypothetical future requirement.
 
-rather than:
+## 5.10 Baseline-First Rule
 
-```text
-Imagine every possible future requirement
-      ↓
-Build huge abstraction hierarchy
-      ↓
-Hope it becomes useful
-```
-
-This is an important part of the software-engineering learning objective.
+Do not introduce caching, routing, advanced compression, complex retrieval, or elaborate abstractions merely because they are available. Establish a working and measurable baseline first.
 
 ---
 
 # 6. Technology Stack
 
-## 6.1 Core Language
+## 6.1 Python
 
-### Python
+The primary language for RAG components, application logic, infrastructure integrations, optimization, observability, FastAPI, testing, and automation.
 
-Python will be the primary implementation language.
+The implementation must strengthen Python and software engineering skills through understandable, maintainable code.
 
-It will be used for:
+## 6.2 LangChain
 
-* RAG components
-* application logic
-* infrastructure integrations
-* optimization experiments
-* observability
-* FastAPI
-* testing
-* automation
+Use LangChain meaningfully for appropriate RAG utilities, such as document loading, text splitting, embeddings integration, retrievers, prompt templates, runnable composition, model integration, and Ollama integration.
 
-The project will deliberately use Python as a vehicle for strengthening software-engineering skills.
+For important abstractions, understand what they provide, what complexity they hide, why they are useful, and when direct implementation would be clearer.
 
----
+LangChain must not hide the entire RAG system from the learner.
 
-## 6.2 RAG Framework
+## 6.3 Hugging Face / Sentence Transformers
 
-### LangChain
+Use local embedding models for documents and queries. Consider embedding latency, resource usage, model characteristics, and hardware constraints. Do not assume the largest model is automatically best.
 
-LangChain will be used as a significant practical component of the project.
+## 6.4 ChromaDB
 
-Potential responsibilities include:
+Use ChromaDB initially for vector storage, metadata, similarity search, and retrieval experiments. Do not add FAISS or PGVector without a specific, justified experiment.
 
-* document loaders
-* text splitting
-* embeddings integration
-* retrievers
-* prompt templates
-* runnable composition
-* model integration
-* RAG pipeline composition
-* Ollama integration
-* other useful RAG utilities
+## 6.5 Ollama
 
-LangChain will **not** replace understanding of the underlying RAG architecture.
+Use Ollama as the local LLM runtime with a practical LLaMA-family model appropriate for the available hardware.
 
-For important abstractions, we should understand:
+Select the exact model during implementation. Keep model configuration separate from the core architecture so that changing the model does not require rewriting the RAG system.
 
-1. What abstraction is being used
-2. What problem it solves
-3. What complexity it hides
-4. Why it is useful in this project
-5. When it would not be appropriate
+## 6.6 FastAPI
 
----
+Provide HTTP endpoints, request validation, response schemas, error handling, health/status checks, RAG functionality, and relevant performance information. Routers must remain thin and delegate application behavior to the application layer.
 
-## 6.3 Embeddings
+## 6.7 React
 
-### Hugging Face / Sentence Transformers
+Build a deliberately small interface for asking questions, displaying answers and retrieved context, viewing useful performance metrics, and inspecting selected experiment results.
 
-Hugging Face-based embedding models will be used for document and query embeddings.
+The frontend is a supporting interface, not a separate major engineering project.
 
-The project will consider:
+## 6.8 Testing and Quality Tools
 
-* embedding generation
-* embedding latency
-* embedding resource usage
-* embedding model characteristics
-* potential embedding optimization
+- **pytest:** unit, integration, API, workflow, optimization, and regression tests.
+- **Ruff:** linting, formatting, and code-quality checks.
+- **MyPy:** static type checking.
+- **Pyright:** additional type analysis.
+- **pre-commit:** automated checks before commits.
 
-Model selection will consider the local hardware constraints rather than assuming that the largest available model is automatically better.
+Configure these tools in Phase 1 and refine them as requirements evolve.
+
+## 6.9 Git and GitHub
+
+Use Git from the beginning and GitHub for version history, documentation, development milestones, and portfolio visibility. Commits must be meaningful, logically separated, and traceable.
+
+## 6.10 Technology Selection Principle
+
+Select technology based on project relevance, learning value, simplicity, maintainability, local compatibility, and measurable benefit. Do not add technologies merely because they are popular.
 
 ---
-
-## 6.4 Vector Database
-
-### ChromaDB
-
-ChromaDB will be the initial vector database.
-
-It will be used for:
-
-* storing document embeddings
-* storing document metadata
-* similarity search
-* retrieval experiments
-* measuring retrieval behavior and latency
-
-PGVector and FAISS will not be added unless a specific experiment later provides a strong justification.
-
----
-
-## 6.5 Local LLM
-
-### Ollama
-
-Ollama will provide the local LLM runtime.
-
-The project will use a practical LLaMA-family model appropriate for the available hardware.
-
-The exact model should be selected during implementation rather than permanently hard-coded into the blueprint.
-
-The application should isolate model configuration so that changing the local model does not require rewriting the RAG architecture.
-
----
-
-## 6.6 Backend
-
-### FastAPI
-
-FastAPI will provide the application API.
-
-Responsibilities include:
-
-* HTTP endpoints
-* request validation
-* response schemas
-* API error handling
-* health checks
-* exposing RAG functionality
-* exposing relevant performance information
-
-FastAPI routers should remain thin and delegate application behavior to the application layer.
-
----
-
-## 6.7 Frontend
-
-### React
-
-React will provide a deliberately small user interface.
-
-The interface should focus on:
-
-* asking questions
-* displaying answers
-* displaying retrieved context/citations
-* displaying useful performance information
-* viewing selected experiment results
-
-The frontend is **not a separate frontend engineering project**.
-
-Its purpose is to provide a usable interface to the RAG system and make the optimization work visible.
-
----
-
-## 6.8 Testing
-
-### pytest
-
-pytest will be the primary testing framework.
-
-Testing will include, where appropriate:
-
-* unit tests
-* integration tests
-* API tests
-* RAG workflow tests
-* optimization validation tests
-* regression tests
-
-The goal is confidence in the system, not maximizing the number of tests.
-
----
-
-## 6.9 Code Quality
-
-### Ruff
-
-Ruff will be used for Python linting and code-quality checks.
-
-### MyPy
-
-MyPy will be used for static type checking.
-
-### Pyright
-
-Pyright will provide an additional type-analysis perspective and strengthen type-safety practices.
-
-### pre-commit
-
-pre-commit will be used to automate selected quality checks before commits.
-
----
-
-## 6.10 Version Control
-
-### Git
-
-Git will be used from the beginning of the project.
-
-### GitHub
-
-GitHub will host the project repository and provide:
-
-* version history
-* project documentation
-* milestones in the development history
-* portfolio visibility
-
-Git history should contain small, meaningful, logically separated commits.
-
----
-
-## 6.11 Technology Selection Principle
-
-Technology will be selected based on:
-
-* relevance to the project objective
-* learning value
-* simplicity
-* maintainability
-* compatibility with the local environment
-* ability to measure and validate its impact
-
-The project will **not add technologies merely because they are popular in the current AI ecosystem**.
 
 # 7. Project Roadmap
 
-The project will be developed progressively through eleven phases.
+The project progresses through eleven phases. Each phase combines learning, implementation, validation, and Git/GitHub progression.
 
-The phases are intentionally ordered so that:
-
-* The system is understood before it is optimized.
-* The baseline exists before performance decisions are made.
-* Software-engineering practices evolve alongside the implementation.
-* Observability is established before performance analysis.
-* Optimization experiments are driven by evidence rather than assumptions.
-* API and UI layers are added after the core system is stable.
-* Final validation compares the optimized system against the established baseline.
-
-The roadmap is therefore not simply a list of implementation tasks. Each phase combines:
-
-* Learning objectives
-* Engineering objectives
-* Implementation work
-* Validation
-* Git/GitHub progression
-* Criteria for moving forward
-
----
+**Core sequencing:** establish the foundation, build an OOP-based baseline, strengthen engineering quality, instrument and measure, analyze bottlenecks, perform justified optimization experiments, expose the system through an API and UI, validate results, and finalize the portfolio.
 
 ## Phase 1 — Project Foundation
 
 ### Objective
 
-Establish the project repository, development environment, initial architecture, engineering tooling, and basic project conventions.
+Establish the repository, development environment, initial project structure, tooling, and conventions without prematurely implementing the RAG system.
 
-The goal is to create a professional foundation without prematurely implementing the RAG system.
+### Main Work
 
-### Main Learning Goals
+- Create and configure the GitHub repository and local Git repository.
+- Establish the Python project and initial directory structure.
+- Configure `.gitignore`, Ruff, MyPy, Pyright, pytest, and pre-commit.
+- Establish configuration management and basic project conventions.
+- Create the initial README and first meaningful commit.
+- Push the initial project to GitHub.
 
-Understand:
+### Architectural and Learning Focus
 
-* Python project structure
-* Dependency management
-* Configuration management
-* Git/GitHub workflow
-* Static analysis
-* Linting and formatting
-* Type checking
-* Automated testing foundations
-* pre-commit
-* Basic modular architecture
+Understand project organization, dependency management, configuration, Git/GitHub, static analysis, testing foundations, and modular architecture.
 
-### Main Implementation Work
-
-* Create the GitHub repository
-* Initialize the local Git repository
-* Establish the Python project
-* Define the initial directory structure
-* Establish configuration management
-* Configure `.gitignore`
-* Configure Ruff
-* Configure MyPy
-* Configure Pyright
-* Configure pytest
-* Configure pre-commit
-* Create the initial README
-* Establish basic project conventions
-* Create the first meaningful commit
-* Push the initial project to GitHub
-
-### Architectural Focus
-
-Define the initial boundaries without creating unnecessary abstractions.
-
-Potential initial areas include:
-
-* `domain/`
-* `application/`
-* `rag/`
-* `embeddings/`
-* `llm/`
-* `optimization/`
-* `observability/`
-* `api/`
-* `tests/`
-
-The exact structure will be reviewed before implementation.
+Define initial boundaries without prematurely designing the entire system. Potential areas include `domain/`, `application/`, `rag/`, `embeddings/`, `llm/`, `optimization/`, `observability/`, `api/`, and `tests/`. Confirm the structure before implementation.
 
 ### Validation
 
-Before moving forward:
-
-* The project can be installed and executed locally.
-* Tests can run successfully.
-* Static analysis works.
-* Linting works.
-* Formatting works.
-* Type checking works.
-* pre-commit works.
-* Git repository is clean.
-* GitHub repository is synchronized.
-* The user understands the purpose of the main project directories and tools.
+- The project can be installed and executed locally.
+- Tests and configured quality tools run successfully.
+- Git status is clean and GitHub is synchronized.
+- The user understands the purpose of the main directories and tools.
 
 ---
 
@@ -1013,195 +507,82 @@ Before moving forward:
 
 ### Objective
 
-Build the simplest useful Naive RAG system that can reliably answer questions from a controlled document collection.
+Build a functional Naive RAG system using **OOP from the beginning**. Establish a reliable baseline before introducing performance optimizations.
 
-This phase establishes the functional baseline.
+### Stage 1 — Architecture and Design
 
-### Main Learning Goals
+- Define the system architecture and end-to-end data flow.
+- Define class responsibilities, relationships, and module boundaries.
+- Establish appropriate encapsulation, composition, interfaces, and dependency injection where justified.
+- Define dependency direction and external-system boundaries.
+- Define testing and acceptance criteria.
+- Document and approve the architecture before implementation.
 
-Understand the complete RAG lifecycle:
+### Stage 2 — OOP Component Implementation
 
-```text
-Documents
-    ↓
-Loading
-    ↓
-Chunking
-    ↓
-Embedding
-    ↓
-Vector Storage
-    ↓
-Retrieval
-    ↓
-Context Construction
-    ↓
-Prompt
-    ↓
-LLM
-    ↓
-Answer
-```
+- Implement the approved component design incrementally.
+- Build document loading, chunking, embedding generation, vector storage, retrieval, context construction, prompt construction, and generation.
+- Keep classes cohesive, with clear responsibilities and explicit dependencies.
+- Integrate components into a functional end-to-end RAG pipeline.
+- Use LangChain meaningfully while understanding the underlying operations.
+- Add focused tests as components are implemented.
 
-The user should understand what each component does and why it exists.
+### Stage 3 — Functional Validation
 
-### Main Implementation Work
+Verify that the system:
 
-Implement:
+- Ingests the selected documents.
+- Generates embeddings and stores vectors in ChromaDB.
+- Retrieves relevant information.
+- Constructs context and generates answers through Ollama.
+- Returns useful retrieval information.
+- Handles expected failure cases.
+- Produces repeatable results for the same configuration.
 
-* document ingestion
-* document loading
-* text splitting/chunking
-* embedding generation
-* ChromaDB persistence
-* similarity retrieval
-* prompt construction
-* Ollama integration
-* RAG execution
-* answer generation
-* retrieval information needed for later analysis
+Create a small initial set of representative questions.
 
-LangChain should be used meaningfully while maintaining understanding of the underlying operations.
-
-### Important Constraint
-
-No performance optimization should be introduced merely because it sounds useful.
-
-The baseline should remain deliberately simple.
-
-### Validation
-
-The baseline must:
-
-* ingest the selected documents
-* create embeddings
-* store vectors
-* retrieve relevant information
-* generate answers
-* handle basic failure cases
-* produce repeatable results for the same configuration
-
-A small initial set of representative questions should be created for functional validation.
+**Constraint:** Do not introduce optimizations merely because they sound useful. Keep the baseline deliberately simple.
 
 ### Git Milestones
 
-Examples:
-
-* `feat: add document ingestion`
-* `feat: add embedding pipeline`
-* `feat: add Chroma vector store`
-* `feat: implement baseline RAG pipeline`
-* `test: add baseline RAG tests`
+Examples: `feat: add document ingestion`, `feat: add embedding pipeline`, `feat: add Chroma vector store`, `feat: implement baseline RAG pipeline`, and `test: add baseline RAG tests`.
 
 ---
 
-## Phase 3 — Professional Engineering & Testing
+## Phase 3 — Professional Engineering and Testing
 
 ### Objective
 
-Transform the initial working implementation into a clean, modular, testable Python system.
+Review and strengthen the baseline architecture without treating OOP as something to add for the first time. The objective is to validate and improve the object-oriented design established in Phase 2.
 
-This phase deliberately strengthens software engineering before serious optimization work begins.
+### Main Work
 
-### Main Learning Goals
-
-Apply:
-
-* Clean Code
-* SOLID
-* separation of concerns
-* high cohesion
-* low coupling
-* dependency inversion
-* dependency injection where justified
-* interfaces/protocols where justified
-* type hints
-* focused modules
-* explicit dependencies
-* testable design
-
-### Main Implementation Work
-
-Review and refactor the baseline architecture.
-
-Potential boundaries include:
-
-```text
-Domain
-   ↓
-Application
-   ↓
-RAG Components
-   ↓
-Infrastructure
-```
-
-Introduce abstractions only where they provide meaningful benefits such as:
-
-* testability
-* replaceability
-* isolation of external dependencies
-* clearer responsibilities
-
-### Testing
-
-Introduce:
-
-* unit tests
-* integration tests
-* retrieval tests
-* RAG workflow tests
-* configuration tests where useful
-
-External systems should be isolated or controlled appropriately in unit tests.
-
-### Important Learning Principle
-
-SOLID is not a checklist.
-
-For every abstraction, the project should ask:
-
-> What problem does this abstraction solve?
-
-If the answer is unclear, the abstraction probably should not exist yet.
+- Review class responsibilities, cohesion, coupling, module boundaries, and dependency direction.
+- Apply Clean Code and SOLID where they solve concrete problems.
+- Refactor when justified by readability, testability, or maintainability.
+- Introduce interfaces, protocols, or dependency injection when they provide meaningful benefits.
+- Isolate external dependencies appropriately in unit tests.
+- Add unit, integration, retrieval, and RAG workflow tests.
 
 ### Validation
 
-The system should:
+The system retains baseline functionality, has understandable class responsibilities, passes the agreed tests and quality checks, and supports isolated testing of appropriate components.
 
-* retain baseline functionality
-* have clear module responsibilities
-* be easier to test
-* pass automated tests
-* pass quality checks
-* maintain understandable dependency relationships
-* allow the user to explain the important code and architectural decisions
+The user must be able to explain the important design decisions and why each abstraction exists.
 
 ---
 
-## Phase 4 — Observability & Measurement
+## Phase 4 — Observability and Measurement
 
 ### Objective
 
-Introduce the minimum useful instrumentation required to understand how the RAG system behaves.
+Instrument the RAG system sufficiently to understand its behavior before optimization.
 
-Optimization cannot be performed responsibly without measurement.
+### Main Work
 
-### Main Learning Goals
+Introduce useful request identification, timing instrumentation, retrieval metrics, context-size information, token-related metrics where available, LLM timing, TTFT measurement where practical, total latency, error information, and relevant model/configuration details.
 
-Understand:
-
-* performance instrumentation
-* latency decomposition
-* request-level metrics
-* token measurement
-* timing boundaries
-* observability versus excessive logging
-* reproducible measurements
-
-### Main Measurements
-
-The initial measurement model should consider:
+Potential measurement structure:
 
 ```text
 Request
@@ -1222,40 +603,17 @@ LLM
  ├── model
  ├── TTFT
  ├── generation_latency
- ├── output_tokens
- └── total_tokens
+ └── token information
 
 Request
  └── total_latency
 ```
 
-Not every metric needs to be implemented immediately. Instrumentation should be proportional to its usefulness.
-
-### Main Implementation Work
-
-Add:
-
-* request identification
-* timing instrumentation
-* retrieval metrics
-* context-size information
-* token-related metrics where available
-* LLM timing
-* TTFT measurement if practical with Ollama streaming
-* total request latency
-* error information
-* relevant configuration information
+Implement only metrics that answer useful engineering questions.
 
 ### Validation
 
-The system should produce enough information to answer:
-
-* How long does retrieval take?
-* How long does generation take?
-* How large is the retrieved context?
-* How many tokens are being processed/generated?
-* What is the end-to-end latency?
-* Where are the obvious performance costs?
+The measurements should help identify retrieval cost, generation cost, context size, token usage where available, end-to-end latency, and obvious performance bottlenecks.
 
 ---
 
@@ -1263,127 +621,49 @@ The system should produce enough information to answer:
 
 ### Objective
 
-Analyze the baseline and identify the actual performance bottlenecks before implementing optimizations.
+Analyze the baseline and identify actual bottlenecks before implementing optimizations. This is primarily an evidence-based decision phase.
 
-This phase is a decision-making phase rather than primarily a coding phase.
+### Main Work
 
-### Main Learning Goals
-
-Learn to:
-
-* profile a system
-* interpret measurements
-* distinguish symptoms from bottlenecks
-* formulate optimization hypotheses
-* establish a baseline
-* avoid optimizing irrelevant components
-* reason about trade-offs
-
-### Baseline Analysis Areas
-
-Depending on actual measurements:
-
-* retrieval latency
-* embedding generation
-* vector search
-* context size
-* input token usage
-* output token usage
-* LLM generation latency
-* TTFT
-* total latency
-* resource consumption
-* ingestion performance
-
-### Baseline Report
-
-The project should establish a documented baseline containing relevant metrics and configuration.
-
-The baseline should make clear:
-
-* what was measured
-* under what configuration
-* what the observed behavior was
-* what appears to be the bottleneck
-* what should be investigated next
-* what should **not** be optimized because it is not currently important
-
-### Critical Principle
-
-> Do not optimize what has not been measured.
-
-The baseline determines which Phase 6 and Phase 7 experiments are worth performing.
-
----
-
-## Phase 6 — LLM / Generation Optimization
-
-### Objective
-
-Investigate selected optimizations on the generation side of the RAG system.
-
-The project will not implement every possible optimization.
-
-Experiments will be selected according to the baseline analysis.
-
-### Candidate Areas
-
-Potential experiments include:
-
-* token usage optimization
-* context-size reduction
-* context compression
-* response caching
-* streaming
-* TTFT optimization
-* model comparison
-* model selection
-* model routing
-* generation configuration
-
-### Candidate Experiment Structure
-
-Each experiment should follow:
-
-```text
-Baseline
-    ↓
-Optimization Hypothesis
-    ↓
-Controlled Change
-    ↓
-Measurement
-    ↓
-Quality Validation
-    ↓
-Comparison
-    ↓
-Keep / Reject
-```
-
-### Example
-
-A context optimization experiment might ask:
-
-> Can we reduce the amount of context sent to the LLM while preserving useful answer quality?
-
-The experiment would measure both:
-
-* performance/resource impact
-* useful behavior
-
-A faster response that loses important information is not automatically an improvement.
+- Examine retrieval, embedding, vector-search, context, token, generation, TTFT, latency, and resource measurements as relevant.
+- Distinguish symptoms from bottlenecks.
+- Document the baseline configuration, workload, measurements, observed behavior, and limitations.
+- Form and prioritize optimization hypotheses.
+- Identify components that do not currently justify optimization.
 
 ### Validation
 
-Each selected optimization should have:
+Produce a documented baseline and a reasoned selection of experiments for Phases 6 and 7.
 
-* a clearly defined hypothesis
-* a controlled change
-* comparable measurements
-* documented results
-* quality/regression validation
-* a final keep/reject decision
+**Critical rule: Do not optimize what has not been measured.**
+
+---
+
+## Phase 6 — LLM and Generation Optimization
+
+### Objective
+
+Investigate selected generation-side optimizations justified by baseline evidence.
+
+### Candidate Experiments
+
+- Token usage and context-size reduction.
+- Context compression.
+- Response caching.
+- Streaming and TTFT.
+- Model comparison or selection.
+- Generation configuration.
+- Model routing, if justified.
+
+### Experiment Method
+
+**Baseline → Hypothesis → Controlled Change → Measurement → Quality Validation → Comparison → Keep or Reject**
+
+For example, test whether reducing context lowers latency or token usage while preserving the information needed to answer questions correctly.
+
+### Validation
+
+Each selected experiment must have a defined hypothesis, comparable measurements, quality/regression checks, documented results, and a final decision. A faster answer that loses important information is not automatically an improvement.
 
 ---
 
@@ -1391,45 +671,23 @@ Each selected optimization should have:
 
 ### Objective
 
-Investigate optimization opportunities in retrieval and the broader RAG pipeline.
+Investigate evidence-supported optimization opportunities in retrieval and the broader RAG pipeline.
 
-### Candidate Areas
+### Candidate Experiments
 
-Potential experiments include:
+- Retrieval `k` optimization.
+- Chunking efficiency.
+- Retrieval latency.
+- Embedding efficiency and model comparison.
+- Vector-search configuration.
+- Retrieval/context efficiency.
+- End-to-end RAG latency.
 
-* retrieval `k` optimization
-* chunking efficiency
-* retrieval latency
-* embedding efficiency
-* embedding model comparison
-* vector-search configuration
-* retrieval/context efficiency
-* end-to-end RAG latency
+### Quality and Validation
 
-### Priority Principle
+Verify that relevant information remains retrievable, important chunks are not systematically excluded, answers remain grounded, and important questions do not regress.
 
-Likely high-value areas include:
-
-1. Retrieval efficiency
-2. Context/token optimization
-3. Retrieval latency
-
-Other experiments are conditional on the baseline.
-
-### Quality Consideration
-
-Retrieval optimization must not be evaluated only through latency.
-
-The project should also verify:
-
-* relevant information remains retrievable
-* useful documents are not systematically excluded
-* answer behavior remains acceptable
-* important questions do not regress
-
-### Validation
-
-Each experiment follows the same controlled methodology established in Phase 6.
+Prioritize experiments according to baseline evidence, expected benefit, learning value, and implementation cost. Follow the same controlled methodology used in Phase 6.
 
 ---
 
@@ -1437,36 +695,20 @@ Each experiment follows the same controlled methodology established in Phase 6.
 
 ### Objective
 
-Expose the RAG system through a clean, production-oriented API boundary.
+Expose the RAG system through a clean API boundary.
 
-### Main Learning Goals
+### Main Work
 
-Understand:
+- Implement appropriate HTTP endpoints.
+- Define request/response schemas and validation.
+- Handle expected API errors.
+- Provide health/status information.
+- Expose core RAG functionality and selected performance/experiment information where appropriate.
+- Add automated API tests.
 
-* FastAPI architecture
-* API contracts
-* request/response schemas
-* validation
-* dependency management
-* error handling
-* separation between API and application logic
-* API testing
-
-### Main Implementation Work
-
-Potential endpoints include:
-
-* health/status
-* question/answer
-* ingestion
-* selected performance information
-* experiment information where appropriate
-
-The exact API surface will be defined during implementation.
+Potential endpoints include question/answer, ingestion, health/status, and selected performance information. Define the exact API surface during implementation.
 
 ### Architectural Principle
-
-The API layer should remain thin:
 
 ```text
 HTTP Request
@@ -1482,153 +724,68 @@ Result
 Response Schema
 ```
 
-RAG implementation details should not leak unnecessarily into the HTTP layer.
-
-### Validation
-
-The API should:
-
-* validate requests
-* return predictable responses
-* handle expected errors
-* expose the core RAG functionality
-* have automated API tests
-* preserve the underlying architecture
+Keep routers thin and prevent infrastructure details from leaking unnecessarily into the API layer.
 
 ---
 
-## Phase 9 — React UI & Performance Dashboard
+## Phase 9 — React UI and Performance Dashboard
 
 ### Objective
 
-Create a small interface that makes the RAG system and its optimization behavior visible.
+Create a small interface that makes the RAG system and optimization results visible.
 
-### Main UI Capabilities
+### Main Capabilities
 
-The interface should allow users to:
+- Enter questions and display answers.
+- Inspect retrieved context or citations.
+- Display useful performance information.
+- View selected experiment results and baseline comparisons.
 
-* enter questions
-* receive answers
-* inspect retrieved context
-* see relevant performance information
-* observe selected optimization results
-
-### Performance Information
-
-The dashboard should remain lightweight.
-
-Potential information includes:
-
-* total latency
-* retrieval latency
-* generation latency
-* TTFT
-* token information
-* selected configuration
-* baseline versus optimized comparison
-
-### Scope Constraint
-
-React should not become a second major project.
-
-The UI exists primarily to:
-
-* interact with the RAG system
-* demonstrate the engineering work
-* make performance behavior observable
+Potential metrics include total latency, retrieval latency, generation latency, TTFT, token information, and configuration.
 
 ### Validation
 
-The UI should:
+The interface communicates correctly with FastAPI and displays answers, retrieval information, and selected metrics reliably.
 
-* communicate correctly with FastAPI
-* display answers correctly
-* display useful retrieval information
-* display selected performance information
-* remain simple and maintainable
+Keep React lightweight. If frontend work becomes disproportionate, reduce the UI scope rather than expanding the project unnecessarily.
 
 ---
 
-## Phase 10 — Validation & Regression
+## Phase 10 — Validation and Regression
 
 ### Objective
 
-Determine whether the optimized system actually represents an improvement over the baseline.
-
-This is the final technical validation phase.
+Determine whether the optimized system improves on the baseline without unacceptable regressions.
 
 ### Golden Dataset
 
-Create a small controlled evaluation set of approximately 20–30 representative questions.
+Create a controlled set of approximately 20–30 representative questions covering:
 
-Possible categories:
+- Direct factual questions.
+- Single-document questions.
+- Questions requiring multiple chunks.
+- Similar or competing information.
+- Questions whose answers are absent from the corpus.
+- Retrieval-sensitive questions.
 
-* direct factual questions
-* single-document questions
-* multi-chunk questions
-* similar/competing information
-* information absent from the corpus
-* retrieval-sensitive questions
-
-Each test case should define useful expected behavior rather than requiring an exact generated sentence.
+Each case should define expected information and behavior rather than requiring an exact generated sentence.
 
 ### Validation Dimensions
 
-The project should compare:
+- **Functional:** the system works and generates answers.
+- **Retrieval:** relevant documents and chunks remain retrievable.
+- **Grounding:** answers are supported by retrieved information.
+- **Out-of-corpus behavior:** unsupported information is not confidently invented.
+- **Performance:** relevant latency, token, context, and resource measurements.
+- **Regression:** changes do not introduce unacceptable deterioration.
 
-#### Functional Behavior
+### Evaluation Boundary
 
-* Does the system work?
-* Are answers generated correctly?
-* Are expected documents retrievable?
+Use a small, controlled, understandable validation approach. Do not build a full evaluation platform or introduce RAGAS and LLM-as-a-judge infrastructure.
 
-#### Retrieval Behavior
+### Final Decision
 
-* Are relevant chunks retrieved?
-* Are important questions still supported?
-
-#### Quality / Grounding
-
-* Does the answer remain grounded in the retrieved information?
-* Has optimization introduced obvious regressions?
-
-#### Performance
-
-* latency
-* retrieval latency
-* generation latency
-* TTFT where applicable
-* context size
-* token usage
-* relevant resource measurements
-
-### Evaluation Principle
-
-No optimization is considered successful solely because it is faster or cheaper.
-
-The final decision must consider:
-
-```text
-Performance
-     +
-Resource Usage
-     +
-Useful Behavior
-     +
-Regression Risk
-```
-
-### Evaluation Tooling Boundary
-
-The project will use a small controlled validation approach.
-
-It will not become a full RAG evaluation platform.
-
-Specifically out of scope:
-
-* RAGAS
-* LLM-as-a-judge infrastructure
-* large-scale evaluation platforms
+Consider performance, resource usage, useful behavior, and regression risk together. Classify important changes as accepted, rejected, inconclusive, or neutral.
 
 ---
 
@@ -1636,1317 +793,384 @@ Specifically out of scope:
 
 ### Objective
 
-Transform the completed project into a clear, reproducible, technically defensible portfolio project.
+Present a reproducible, understandable, technically defensible portfolio project.
 
 ### Documentation
 
-The final repository should document:
+Document:
 
-* project objective
-* architecture
-* technology stack
-* setup
-* usage
-* baseline RAG
-* measurement methodology
-* baseline performance
-* optimization hypotheses
-* experiments
-* results
-* trade-offs
-* rejected optimizations
-* final architecture
-* validation methodology
-* limitations
-* future improvements
-
-### Portfolio Narrative
-
-The project should communicate a clear engineering story:
-
-```text
-Built a baseline RAG system
-        ↓
-Instrumented the system
-        ↓
-Measured actual behavior
-        ↓
-Identified bottlenecks
-        ↓
-Designed controlled experiments
-        ↓
-Optimized selected components
-        ↓
-Validated quality and regression
-        ↓
-Documented engineering trade-offs
-```
-
-The portfolio should emphasize **engineering reasoning**, not merely the number of technologies used.
+- Project objective, architecture, and technology stack.
+- Setup, configuration, and usage.
+- OOP design and significant architectural decisions.
+- Baseline RAG and measurement methodology.
+- Baseline performance and observed bottlenecks.
+- Optimization hypotheses, experiments, results, and trade-offs.
+- Rejected experiments and their rationale.
+- Testing, regression methodology, and limitations.
+- Final architecture and future improvements.
 
 ### Final Technical Review
 
-Before considering the project complete, review:
+Review architecture, class responsibilities, code quality, tests, type safety, observability, experiments, regression results, API, UI, documentation, Git history, and reproducibility.
 
-* architecture
-* code quality
-* tests
-* type safety
-* observability
-* optimization experiments
-* regression results
-* API
-* UI
-* documentation
-* Git history
-* reproducibility
+The final repository should be understandable to another engineer without access to the original development conversation.
 
-The final repository should be understandable to another engineer without requiring the original development conversation.
+### Portfolio Narrative
 
----
+**Build Baseline → Instrument → Measure → Identify Bottlenecks → Design Experiments → Optimize → Validate → Document Trade-offs**
+
+The portfolio should emphasize engineering reasoning rather than the number of technologies used.
 
 ## 7.12 Roadmap Progression Principle
 
-The phases are sequential in terms of learning dependencies, but they are not rigidly isolated.
+Phases follow learning dependencies but are not rigidly isolated. Later evidence may justify revisiting earlier decisions.
 
-Later phases may reveal problems that require revisiting earlier decisions.
-
-For example:
-
-```text
-Phase 5
-Baseline Analysis
-     ↓
-Discover architecture problem
-     ↓
-Return to Phase 3 principles
-     ↓
-Refactor
-     ↓
-Continue optimization
-```
-
-This is not considered failure.
-
-Refactoring based on evidence is part of professional software engineering.
-
-The important constraint is to avoid uncontrolled scope expansion.
-
----
+For example, baseline analysis may reveal an architectural problem that requires refactoring before optimization continues. Such refactoring is part of professional engineering, not a failure.
 
 ## 7.13 Phase Completion Principle
 
-A phase is complete only when both dimensions have been sufficiently validated:
+A phase is complete when both conditions are sufficiently validated:
 
-### Technical Outcome
+- **Technical outcome:** the intended capability works and has been tested.
+- **Learning outcome:** the user understands what was implemented, why it exists, how it works, and its trade-offs.
 
-The intended system capability or engineering improvement works and has been tested.
+**“The code runs” is not sufficient for phase completion.**
 
-### Learning Outcome
+---
 
-The user understands:
-
-* what was implemented
-* why it was implemented
-* how it works
-* what trade-offs exist
-* why alternative approaches were rejected when relevant
-
-Therefore:
-
-> **"The code runs" is not sufficient as a phase-completion criterion.**
-
-# 8. Global Testing & Quality Strategy
+# 8. Global Testing and Quality Strategy
 
 ## 8.1 Objective
 
-Testing and code quality are first-class concerns throughout the project.
+Testing and quality are first-class concerns throughout the project, not tasks postponed until the end.
 
-They will not be postponed until the end.
+Validation must provide confidence in functional behavior, architectural boundaries, optimization experiments, and regression resistance. The goal is useful confidence, not maximum test coverage.
 
-The objective is to establish enough automated and manual validation to provide confidence that:
+## 8.2 Testing Layers
 
-* the system behaves correctly
-* changes do not introduce unintended regressions
-* optimization experiments are trustworthy
-* architectural boundaries remain understandable
-* the code remains maintainable as the project grows
+Introduce testing progressively:
 
-Testing should remain proportional to the project's complexity.
+**Unit Tests → Integration Tests → RAG Workflow Tests → API Tests → Performance Experiments → Regression Validation**
 
-The goal is **useful confidence**, not maximum test coverage.
-
----
-
-## 8.2 Testing Strategy
-
-Testing will be introduced progressively.
-
-The general progression is:
-
-```text
-Basic Tests
-    ↓
-Unit Tests
-    ↓
-Integration Tests
-    ↓
-RAG Workflow Tests
-    ↓
-API Tests
-    ↓
-Performance Validation
-    ↓
-Regression Validation
-```
-
-Each type of test serves a different purpose.
-
----
+Each layer serves a different purpose.
 
 ## 8.3 Unit Tests
 
-Unit tests will validate isolated pieces of application behavior.
+Test isolated behavior such as configuration handling, text processing, chunking-related logic, context and prompt construction, metric calculations, cache behavior, and application-level decisions.
 
-Potential candidates include:
+Avoid unnecessary dependence on ChromaDB, Ollama, filesystem state, or network services when behavior can be tested independently.
 
-* configuration handling
-* text-processing logic
-* chunking-related logic
-* context construction
-* prompt construction
-* metric calculations or transformations
-* cache behavior
-* application-level decision logic
-
-Unit tests should avoid unnecessary dependence on:
-
-* ChromaDB
-* Ollama
-* filesystem state
-* network services
-
-when the behavior can be tested independently.
-
-### Principle
-
-A unit test should make it reasonably clear what failed and why.
-
----
+OOP design should support testing through cohesive responsibilities and replaceable dependencies where justified.
 
 ## 8.4 Integration Tests
 
-Integration tests will validate interactions between important components.
+Validate interactions between components, including embedding integration, ChromaDB, retrieval, Ollama, RAG execution, and persistence.
 
-Potential examples include:
-
-* embedding integration
-* ChromaDB integration
-* retrieval behavior
-* Ollama integration
-* RAG pipeline execution
-* persistence behavior
-
-Integration tests may use real local infrastructure where doing so provides meaningful confidence.
-
-The project should distinguish clearly between:
-
-```text
-Unit Test
-    ↓
-Tests isolated behavior
-
-Integration Test
-    ↓
-Tests real component interaction
-```
-
----
+Use real local infrastructure when it provides meaningful confidence. Distinguish isolated unit behavior from real component interactions.
 
 ## 8.5 RAG Workflow Tests
 
-The complete RAG pipeline should have tests covering the primary flow:
+Validate the primary flow:
 
-```text
-Question
-   ↓
-Retrieval
-   ↓
-Context
-   ↓
-Prompt
-   ↓
-LLM
-   ↓
-Answer
-```
+**Question → Retrieval → Context → Prompt → LLM → Answer**
 
-These tests should verify that the major components remain connected correctly.
-
-They should not attempt to prove that a generative model will always produce exactly the same wording.
-
----
+Tests should verify that components remain correctly connected without assuming that a generative model always produces identical wording.
 
 ## 8.6 API Tests
 
-Once FastAPI is introduced, automated API tests should validate:
+Once FastAPI is introduced, test request validation, successful requests, expected errors, response schemas, health endpoints, and relevant application behavior.
 
-* request validation
-* successful requests
-* expected error responses
-* response structure
-* health endpoints
-* relevant application behavior
+Validate the API contract without unnecessarily duplicating all lower-level tests.
 
-API tests should verify the API contract without duplicating every lower-level unit test.
+## 8.7 Performance Experiments
 
----
+Performance measurements are controlled experiments, not ordinary unit tests.
 
-## 8.7 Performance Validation
+Each significant experiment must document:
 
-Performance measurements are not traditional unit tests.
+- Baseline and experimental configuration.
+- Workload and experimental conditions.
+- Hypothesis and controlled change.
+- Measured metrics.
+- Quality checks.
+- Results, interpretation, and decision.
 
-They should instead be treated as controlled experiments.
+## 8.8 Golden Dataset and Quality Validation
 
-Each performance experiment should define:
+Maintain approximately 20–30 representative questions covering direct facts, single-document and multi-chunk questions, similar information, absent information, and retrieval-sensitive cases.
 
-* baseline configuration
-* experimental configuration
-* measured metrics
-* experimental conditions
-* relevant quality checks
-* interpretation
-* final decision
+For each relevant case, record the question, expected information, relevant document/chunk, and expected behavior.
 
-Example structure:
+Evaluate retrieval relevance, grounding, expected answer behavior, and appropriate handling of out-of-corpus questions.
 
-```text
-Experiment
-    ↓
-Baseline
-    ↓
-Hypothesis
-    ↓
-Controlled Change
-    ↓
-Measurement
-    ↓
-Quality Check
-    ↓
-Comparison
-    ↓
-Decision
-```
+## 8.9 Regression and Experiment Decisions
 
----
+Compare the optimized system against the baseline or previous accepted version across:
 
-## 8.8 Golden Dataset
+- Performance and resource usage.
+- Retrieval behavior.
+- Grounding and answer behavior.
 
-A small golden dataset will be used for regression validation.
+Classify changes as:
 
-Target size:
+- **Accepted:** useful improvement without unacceptable regression.
+- **Rejected:** unacceptable deterioration or unjustified complexity.
+- **Inconclusive:** insufficient or inconsistent evidence.
+- **Neutral:** insufficient benefit to justify the change.
 
-**approximately 20–30 representative questions**
+Not every experiment belongs in the final architecture.
 
-The dataset should contain different types of retrieval and generation situations.
+## 8.10 Static Checks and Manual Review
 
-Possible categories:
+Use Ruff, MyPy, Pyright, pytest, and pre-commit consistently. Establish initial configuration in Phase 1 and refine it as necessary.
 
-* direct factual questions
-* questions answered by one document
-* questions requiring multiple chunks
-* similar or competing information
-* questions whose answer is absent from the corpus
-* retrieval-sensitive questions
+Manual review must also consider readability, naming, class and module responsibilities, duplication, dependency direction, justified abstractions, error handling, test usefulness, configuration, logging, and coupling.
 
-Each case should contain enough information to evaluate expected behavior.
+## 8.11 Testing Principle
 
-Potential structure:
+> Test behavior and boundaries, not implementation details unnecessarily.
 
-```text
-Question
-Expected Information
-Relevant Document / Chunk
-Expected Behavior
-```
-
-The goal is not to construct a perfect benchmark.
-
-The goal is to create a stable reference set for comparing system versions.
+Refactoring that preserves behavior should not require rewriting tests merely because internal implementation details changed.
 
 ---
 
-## 8.9 Quality Validation
+# 9. Git and GitHub Strategy
 
-For optimization experiments, quality validation should consider:
+## 9.1 Objective and Repository
 
-### Retrieval
+Repository: `rag-performance-optimization-system`
 
-* Was relevant information retrieved?
-* Were important documents/chunks lost?
+Git and GitHub are part of the engineering workflow from the beginning. The repository should contain the source, tests, configuration, and documentation required to reproduce the system.
 
-### Grounding
+Never commit secrets, credentials, unnecessary generated files, virtual environments, local caches, or machine-specific configuration that should remain local.
 
-* Is the answer supported by the retrieved context?
+## 9.2 Development Workflow
 
-### Expected Behavior
+**Understand → Design → Implement Small Change → Run → Test → Review → Quality Checks → Commit → Push**
 
-* Does the answer contain the information expected for the question?
+This workflow reinforces learning, code quality, and controlled progression.
 
-### Out-of-Corpus Behavior
+## 9.3 Commit Strategy
 
-* Does the system avoid confidently inventing information when the corpus does not contain the answer?
-
-The evaluation should remain lightweight and understandable.
-
----
-
-## 8.10 Regression Strategy
-
-After an optimization, compare the optimized system against the baseline or previous accepted version.
-
-The comparison should consider:
-
-```text
-Performance
-    +
-Resource Usage
-    +
-Retrieval Behavior
-    +
-Answer Behavior
-```
-
-An optimization may therefore be:
-
-### Accepted
-
-Performance improves without unacceptable regression.
-
-### Rejected
-
-Performance improves but useful behavior deteriorates significantly.
-
-### Inconclusive
-
-Measurements are insufficient or inconsistent.
-
-### Neutral
-
-The change does not provide enough benefit to justify its additional complexity.
-
-This distinction is important because **not every optimization experiment needs to become part of the final architecture**.
-
----
-
-## 8.11 Static Quality Checks
-
-The project should progressively integrate:
-
-* Ruff
-* MyPy
-* Pyright
-* pytest
-* pre-commit
-
-These tools should be run consistently rather than only before the final publication.
-
-The exact configuration will be established during Phase 1 and refined as the project evolves.
-
----
-
-## 8.12 Manual Review
-
-Automated tools are not sufficient.
-
-Regular manual review should consider:
-
-* readability
-* naming
-* module responsibilities
-* duplicated logic
-* unnecessary abstraction
-* dependency direction
-* error handling
-* test usefulness
-* configuration clarity
-* logging quality
-* architectural coupling
-
-The user should be able to explain the important parts of the system.
-
----
-
-## 8.13 Testing Principle
-
-The project follows:
-
-> **Test behavior and boundaries, not implementation details unnecessarily.**
-
-A refactoring that preserves behavior should not require rewriting large numbers of tests simply because internal implementation details changed.
-
----
-
-# 9. Git & GitHub Strategy
-
-## 9.1 Objective
-
-Git and GitHub will be used from the beginning as part of the engineering workflow, not merely as a final code-upload mechanism.
-
-The repository history should demonstrate progressive engineering work.
-
----
-
-## 9.2 Repository Strategy
-
-Repository:
-
-`rag-performance-optimization-system`
-
-The repository should contain the complete project source, tests, configuration, and documentation required to reproduce the system.
-
-Generated or unnecessary artifacts should not be committed.
-
-Secrets and credentials must never be committed.
-
----
-
-## 9.3 Development Workflow
-
-The general workflow will be:
-
-```text
-Understand
-    ↓
-Design
-    ↓
-Implement Small Change
-    ↓
-Run
-    ↓
-Test
-    ↓
-Review
-    ↓
-Quality Checks
-    ↓
-Commit
-    ↓
-Push
-```
-
-This workflow is deliberately aligned with the project's learning methodology.
-
----
-
-## 9.4 Commit Strategy
-
-Commits should represent meaningful, logically coherent changes.
+Commits must represent meaningful, logically coherent changes.
 
 Examples:
 
-* `chore: initialize project structure`
-* `chore: configure development tooling`
-* `feat: add document ingestion pipeline`
-* `feat: add Chroma vector store integration`
-* `feat: implement baseline RAG pipeline`
-* `test: add retrieval integration tests`
-* `refactor: separate retrieval application boundary`
-* `feat: add request performance instrumentation`
-* `feat: add response cache`
-* `test: validate cache behavior`
-* `docs: document caching experiment results`
+- `chore: initialize project structure`
+- `chore: configure development tooling`
+- `feat: add document ingestion pipeline`
+- `feat: add Chroma vector store integration`
+- `feat: implement baseline RAG pipeline`
+- `test: add retrieval integration tests`
+- `refactor: clarify retrieval component responsibilities`
+- `feat: add request performance instrumentation`
+- `test: validate cache behavior`
+- `docs: document optimization experiment results`
 
-Avoid vague commits such as:
+Avoid vague messages such as `stuff`, `changes`, `final`, or `misc`.
 
-* `stuff`
-* `changes`
-* `final`
-* `fix`
-* `update`
-* `misc`
+Aim for one coherent engineering change per commit without artificially fragmenting related implementation and tests.
 
-unless the commit message provides enough meaningful context.
+## 9.4 Branching and History
 
----
+Use a simple workflow appropriate for a single-developer portfolio project. Feature branches are optional when they help isolate substantial experiments, refactors, or risky changes. Complex GitFlow is unnecessary.
 
-## 9.5 Commit Granularity
+The history should tell a clear story:
 
-Commits should generally be small enough that their purpose is obvious.
+**Foundation → Baseline RAG → Engineering and Testing → Observability → Baseline Analysis → Optimization → API → UI → Validation → Documentation**
 
-However, commits should not become artificially fragmented.
+Significant optimization experiments should be traceable to their baseline, changes, measurements, and decisions.
 
-The goal is:
+## 9.5 Git Hygiene and Learning
 
-> **One coherent engineering change per commit.**
+Before committing, verify that there are no secrets, unnecessary local files, virtual environments, caches, temporary datasets, debugging artifacts, or inappropriate machine-specific settings.
 
-For example, implementing a feature and its directly related tests can reasonably belong to the same commit when they form one coherent change.
+By project completion, the user should understand repository initialization, staging, commits, branches when justified, merges, remote repositories, push/pull, history review, and safe correction of mistakes.
+
+**Git is part of the learning objective, not merely a way to upload code.**
 
 ---
-
-## 9.6 Git History as an Engineering Record
-
-The Git history should tell a recognizable story:
-
-```text
-Foundation
-    ↓
-Baseline RAG
-    ↓
-Testing / Refactoring
-    ↓
-Observability
-    ↓
-Performance Baseline
-    ↓
-Optimization Experiments
-    ↓
-API
-    ↓
-UI
-    ↓
-Validation
-    ↓
-Documentation
-```
-
-This provides useful evidence of how the system evolved.
-
----
-
-## 9.7 Branching Strategy
-
-The project should avoid unnecessary Git complexity.
-
-For a single-developer portfolio project, a simple workflow is appropriate.
-
-The default approach can be:
-
-```text
-main
-  │
-  ├── focused development work
-  │
-  └── validated changes
-```
-
-Feature branches may be used when they provide a meaningful reason, such as:
-
-* a larger isolated experiment
-* an architectural refactor
-* an optimization experiment requiring comparison
-* a change that should be isolated before merging
-
-A complex GitFlow-style workflow is unnecessary for this project.
-
----
-
-## 9.8 Optimization Experiment History
-
-Performance experiments should be traceable.
-
-When an experiment becomes significant enough, Git should allow us to identify:
-
-* the baseline implementation
-* the experimental change
-* the resulting measurements
-* the final decision
-
-This makes optimization work reproducible and defensible.
-
----
-
-## 9.9 GitHub Documentation
-
-The repository should eventually contain documentation explaining:
-
-* what the project does
-* how to run it
-* architecture
-* configuration
-* baseline methodology
-* optimization experiments
-* results
-* validation
-* limitations
-
-Documentation should evolve with the project rather than being written entirely at the end.
-
----
-
-## 9.10 Git Hygiene
-
-Before commits, verify:
-
-* no secrets
-* no unnecessary local files
-* no virtual environments
-* no generated caches
-* no large temporary datasets
-* no debugging artifacts
-* no machine-specific configuration that should remain local
-
-The repository should remain clean throughout development.
-
----
-
-## 9.11 Git/GitHub Learning Objective
-
-By the end of the project, the user should be comfortable with:
-
-* repository initialization
-* staging
-* commits
-* meaningful commit messages
-* branches when justified
-* merges when necessary
-* remote repositories
-* push/pull
-* reviewing history
-* reverting or correcting changes safely
-* maintaining a professional project history
-
-Git is therefore part of the engineering learning objective, not merely project administration.
 
 # 10. Definition of Done
 
-The project will be considered complete when the system, engineering practices, optimization experiments, validation, and documentation satisfy the following criteria.
+The project is complete when it demonstrates a working, measurable, tested, optimized, and professionally engineered RAG system, together with a clear understanding of the decisions behind it.
 
-Completion does not mean that every possible optimization has been implemented.
-
-The project is complete when it demonstrates a **working, measurable, tested, optimized, and professionally engineered RAG system**, together with a clear understanding of the decisions behind it.
-
----
+Completion does not require implementing every possible optimization.
 
 ## 10.1 Functional Completion
 
-The system must provide a working RAG pipeline capable of:
+The system can ingest the selected corpus, chunk documents, generate embeddings, store vectors in ChromaDB, retrieve relevant information, construct context, generate answers through Ollama, return useful retrieval information, and handle expected failure cases.
 
-* ingesting the selected document corpus
-* chunking documents
-* generating embeddings
-* storing embeddings in ChromaDB
-* retrieving relevant information
-* constructing context
-* generating answers through Ollama
-* returning useful retrieval information
-* handling expected failure cases
+The baseline must be reproducible using documented configuration.
 
-The baseline RAG must be reproducible using the documented configuration.
+## 10.2 Architecture and OOP Completion
 
----
+The architecture demonstrates:
 
-## 10.2 Architecture Completion
+- Clear class and module responsibilities.
+- Cohesive components with appropriate encapsulation.
+- Appropriate composition and class relationships.
+- Reasonable dependency direction.
+- Interfaces, protocols, and dependency injection where justified.
+- Separation between application logic and infrastructure.
+- Separation between API and application logic.
+- Maintainable configuration and replaceable dependencies where useful.
 
-The final architecture should demonstrate:
-
-* clear separation of responsibilities
-* modular Python components
-* appropriate dependency boundaries
-* reasonable dependency direction
-* appropriate use of dependency inversion
-* appropriate use of interfaces/protocols
-* separation between application logic and infrastructure
-* separation between API and application logic
-* maintainable configuration
-
-The architecture should remain understandable.
-
-Complexity that cannot be justified should be removed.
-
----
+The architecture must remain understandable. Unjustified complexity should be removed.
 
 ## 10.3 Software Engineering Completion
 
-The project should demonstrate practical application of:
+Demonstrate pragmatic application of Clean Code, SOLID, OOP, separation of concerns, high cohesion, low coupling, type hints, dependency and configuration management, error handling, logging, testability, and modular design.
 
-* Clean Code
-* SOLID principles
-* separation of concerns
-* high cohesion
-* low coupling
-* type hints
-* dependency management
-* configuration management
-* error handling
-* logging
-* testability
-* modular design
+The user should be able to explain where these principles are applied and where a simpler solution was intentionally preferred.
 
-These principles should be applied pragmatically rather than mechanically.
+## 10.4 Testing and Quality Tooling Completion
 
----
+Provide meaningful unit, integration, RAG workflow, API, and regression validation.
 
-## 10.4 Testing Completion
+The agreed quality checks using Ruff, MyPy, Pyright, pytest, and pre-commit must work and pass. Document and justify any intentional exceptions.
 
-The project should have an appropriate automated testing foundation including:
+The number of tests is not itself a completion criterion; important behaviors and boundaries must have meaningful validation.
 
-* unit tests
-* integration tests
-* RAG workflow tests
-* API tests
-* regression validation
+## 10.5 Observability and Baseline Completion
 
-The exact number of tests is not a completion criterion.
+The system must measure relevant aspects of retrieval latency, context size, token usage where available, LLM latency, TTFT where practical, total latency, errors, and configuration/model information.
 
-The important requirement is that critical behavior and important boundaries have meaningful validation.
+Document the baseline configuration, workload or evaluation set, measurements, retrieval and answer behavior, observed bottlenecks, and limitations.
 
----
+## 10.6 Optimization and Experiment Completion
 
-## 10.5 Quality Tooling Completion
+Investigate a meaningful selection of optimizations in both areas, based on evidence:
 
-The project should have functioning quality checks using the selected tooling:
-
-* Ruff
-* MyPy
-* Pyright
-* pytest
-* pre-commit
-
-The final codebase should pass the agreed project checks.
-
-Any intentional exceptions should be documented and justified.
-
----
-
-## 10.6 Observability Completion
-
-The system should provide enough instrumentation to understand the major performance characteristics of a RAG request.
-
-At minimum, the project should be able to measure relevant aspects of:
-
-* retrieval latency
-* context size
-* token usage where available
-* LLM latency
-* TTFT where practical
-* total request latency
-* relevant errors
-* configuration/model information
-
-The goal is not exhaustive telemetry.
-
-The goal is sufficient observability to support engineering decisions.
-
----
-
-## 10.7 Baseline Completion
-
-A documented baseline must exist before final optimization conclusions are made.
-
-The baseline should identify:
-
-* configuration
-* workload/evaluation set
-* relevant performance measurements
-* retrieval behavior
-* answer behavior
-* observed bottlenecks
-* important limitations
-
-The baseline becomes the reference point for optimization experiments.
-
----
-
-## 10.8 Optimization Completion
-
-The project should contain a meaningful set of selected optimization experiments.
-
-The exact number is intentionally not fixed.
-
-At least some meaningful optimization should be investigated in both areas:
-
-### LLM / Generation
-
-Examples:
-
-* token/context optimization
-* caching
-* streaming
-* generation configuration
-* model selection
-
-### RAG / Retrieval
-
-Examples:
-
-* retrieval `k`
-* chunking
-* retrieval efficiency
-* embedding efficiency
-* vector-search behavior
+- **LLM/generation:** context/token optimization, caching, streaming, generation configuration, or model selection.
+- **RAG/retrieval:** retrieval `k`, chunking, retrieval efficiency, embedding efficiency, or vector-search behavior.
 
 Only experiments justified by the baseline need to be implemented.
 
----
+Document each significant experiment's hypothesis, baseline, change, measurements, quality validation, results, decision, and trade-offs. Rejected experiments remain valuable engineering evidence.
 
-## 10.9 Experiment Completion
+## 10.7 Quality and Regression Completion
 
-Each significant optimization experiment should document:
+Evaluate the final optimized system against the golden dataset. Demonstrate that selected optimizations do not introduce unacceptable regressions in retrieval, grounding, expected answer behavior, or out-of-corpus behavior.
 
-* hypothesis
-* baseline
-* change
-* measurements
-* quality validation
-* result
-* decision
-* trade-offs
+Interpret performance gains together with useful behavior and complexity.
 
-Experiments may conclude:
+## 10.8 API and UI Completion
 
-* accepted
-* rejected
-* inconclusive
-* neutral
+FastAPI must provide a clean, tested interface with request validation, response schemas, predictable errors, health/status capability, and access to core RAG functionality.
 
-Rejected experiments are still valuable evidence of engineering reasoning.
+React must provide a lightweight interface for asking questions, displaying answers, inspecting retrieved context, and viewing relevant performance or experiment information.
 
----
+## 10.9 Documentation and Git Completion
 
-## 10.10 Quality and Regression Completion
+Document the objective, architecture, technology stack, setup, configuration, usage, baseline methodology and results, OOP design, optimization experiments, trade-offs, validation, limitations, and future work.
 
-The final optimized system should be evaluated against the golden dataset.
+The repository should have meaningful commits, clean history, no secrets or unnecessary artifacts, and a reproducible setup. Another engineer should be able to understand the project without access to the original development conversation.
 
-The evaluation should demonstrate that selected optimizations do not introduce unacceptable regressions in:
+## 10.10 Learning Completion
 
-* retrieval behavior
-* grounding
-* expected answer behavior
-* out-of-corpus behavior
+The user must be able to explain:
 
-Performance improvements must be interpreted together with useful behavior.
+**RAG:** the complete pipeline, chunking, embeddings, vector retrieval, context construction, and LangChain's role.
+
+**Python and OOP:** important modules and classes, types, class responsibilities, dependencies, encapsulation, composition, and the design choices that support testability.
+
+**Software Engineering:** why the architecture is structured as it is, where SOLID is applied, why abstractions exist, and why unnecessary abstractions were rejected.
+
+**Performance:** baseline bottlenecks, measurement methods, experiment design, optimization results, and trade-offs.
+
+**Testing:** what unit and integration tests validate and how regression and optimization quality are assessed.
+
+**Engineering Decisions:** the ability to defend significant architectural and optimization choices in a technical interview.
 
 ---
 
-## 10.11 API Completion
+# 11. Project Risks and Scope-Control Rules
 
-FastAPI should provide a clean interface to the core system.
+## 11.1 Overengineering and Premature Abstraction
 
-The API should demonstrate:
+The project combines RAG, LangChain, OOP, optimization, observability, FastAPI, React, and testing. The main risk is disproportionate complexity.
 
-* request validation
-* response schemas
-* predictable errors
-* health/status capability
-* access to core RAG functionality
-* automated API tests
-* appropriate separation from the underlying application logic
+Do not create abstractions simply because SOLID recommends interfaces, enterprise architectures use factories, dependency injection frameworks exist, or future requirements might change.
 
----
+A class, interface, or abstraction must solve a concrete problem, such as improving testability, isolating infrastructure, clarifying responsibilities, enabling a justified experiment, or making a real change easier.
 
-## 10.12 UI Completion
+**Do not maximize the number of classes. Maximize justified design quality.**
 
-The React interface should provide a small but functional interface for:
+## 11.2 Scope Creep and Technology Collection
 
-* asking questions
-* displaying answers
-* inspecting retrieved context
-* viewing relevant performance information
-* viewing selected experiment information
-
-The UI should remain intentionally lightweight.
-
----
-
-## 10.13 Documentation Completion
-
-The repository documentation should explain:
-
-* project objective
-* architecture
-* technology stack
-* setup
-* configuration
-* usage
-* baseline RAG
-* measurement methodology
-* baseline results
-* optimization experiments
-* optimization results
-* trade-offs
-* validation methodology
-* limitations
-* future work
-
-A technically competent developer should be able to understand the project without access to the original development conversation.
-
----
-
-## 10.14 Git/GitHub Completion
-
-The final repository should demonstrate:
-
-* meaningful commits
-* clean history
-* appropriate Git hygiene
-* no secrets
-* no unnecessary artifacts
-* reproducible project setup
-* complete source and documentation
-
-The Git history should reflect the progressive development of the system.
-
----
-
-## 10.15 Learning Completion
-
-This is one of the most important completion criteria.
-
-The user should be able to explain:
-
-### RAG
-
-* how the complete RAG pipeline works
-* why chunking exists
-* why embeddings are needed
-* how vector retrieval works
-* how context reaches the LLM
-* what LangChain is doing
-
-### Python
-
-* the important modules
-* major classes/functions
-* important types
-* dependency relationships
-* error-handling decisions
-
-### Software Engineering
-
-* why the architecture is structured as it is
-* where SOLID principles are applied
-* where they were intentionally not applied
-* why abstractions exist
-* why unnecessary abstractions were rejected
-
-### Performance
-
-* what the baseline bottlenecks were
-* how they were identified
-* why specific optimizations were selected
-* how experiments were designed
-* what changed
-* what trade-offs resulted
-
-### Testing
-
-* what the tests validate
-* why unit versus integration tests exist
-* how regression is evaluated
-* how optimization quality is validated
-
-### Engineering Decisions
-
-The user should be able to defend important architectural and optimization decisions in a technical interview.
-
----
-
-# 11. Project Risks & Scope-Control Rules
-
-## 11.1 Primary Risk: Overengineering
-
-The largest project risk is unnecessary complexity.
-
-Because the project combines:
-
-* RAG
-* LangChain
-* software engineering
-* optimization
-* observability
-* FastAPI
-* React
-* testing
-
-there is a natural tendency to keep adding abstractions and technologies.
-
-The project must actively resist this.
-
-### Rule
-
-> **Do not add complexity merely because it is technically possible.**
-
----
-
-## 11.2 Scope-Creep Rule
-
-A proposed feature must satisfy at least one of these conditions:
+A proposed feature must meet at least one condition:
 
 1. It directly supports a project objective.
 2. It provides significant learning value.
 3. It is necessary to validate an important hypothesis.
-4. It solves a concrete problem discovered during implementation.
+4. It solves a concrete implementation problem.
 
-If none applies, it should probably remain out of scope.
+Otherwise, classify it as optional or future work.
 
----
+Do not add LangGraph, agent frameworks, GraphRAG, hybrid search, rerankers, multiple vector databases, unnecessary observability platforms, complex evaluation frameworks, cloud infrastructure, or Kubernetes merely for portfolio keywords.
 
 ## 11.3 Baseline-First Rule
 
-No significant optimization should be introduced simply because it is considered a best practice.
+No significant optimization should be introduced just because it is considered a best practice.
 
-The sequence is:
+**Baseline → Measure → Identify Problem → Form Hypothesis → Optimize → Measure Again → Validate Quality**
 
-```text id="e2r0uo"
-Baseline
-   ↓
-Measure
-   ↓
-Identify Problem
-   ↓
-Form Hypothesis
-   ↓
-Optimize
-   ↓
-Measure Again
-   ↓
-Validate Quality
-```
+Do not optimize a component that has not been understood and measured.
 
-This is a central rule of the project.
+## 11.4 OOP and LangChain Scope Rules
 
----
+Apply OOP where it improves encapsulation, cohesion, replaceability, testability, or clarity. Keep simple operations as functions when that is the better design.
 
-## 11.4 No Premature Abstraction
+Use LangChain meaningfully without allowing it to obscure the underlying RAG architecture. For important abstractions, understand what LangChain provides, what happens underneath, and when a direct implementation may be clearer.
 
-Do not create abstractions solely because:
-
-* SOLID recommends interfaces
-* enterprise architecture commonly uses factories
-* dependency injection frameworks exist
-* a future implementation might someday be different
-
-An abstraction should have a concrete justification.
-
-Examples of valid reasons may include:
-
-* replacing an external dependency
-* improving testability
-* isolating infrastructure
-* supporting a real experiment
-* separating responsibilities that have become difficult to maintain
-
----
-
-## 11.5 No Technology Collection
-
-The project should not become a demonstration of how many AI technologies can be combined.
-
-The following should not be added merely for portfolio keywords:
-
-* LangGraph
-* agent frameworks
-* GraphRAG
-* hybrid search
-* rerankers
-* multiple vector databases
-* multiple observability platforms
-* complex evaluation frameworks
-* cloud infrastructure
-* Kubernetes
-* unnecessary databases
-
-A technology belongs in the project only when its role is justified.
-
----
-
-## 11.6 LangChain Scope Rule
-
-LangChain should be used meaningfully, but it should not become an abstraction layer that hides the entire system from the learner.
-
-For important components, the user should understand:
-
-* what LangChain provides
-* what happens underneath
-* where LangChain helps
-* where direct implementation may be clearer
-
-The project should avoid blindly wrapping every operation in LangChain abstractions.
-
----
-
-## 11.7 Performance Measurement Rule
-
-Performance numbers should always be interpreted in context.
-
-Local measurements depend on:
-
-* CPU
-* available RAM
-* GPU availability
-* operating system
-* model
-* model configuration
-* document corpus
-* workload
-* concurrent activity
-
-Therefore:
-
-> **Performance results in this project are experimental results for the defined environment, not universal benchmarks.**
-
----
-
-## 11.8 Quality-vs-Performance Rule
+## 11.5 Quality-versus-Performance Rule
 
 A faster system is not automatically a better system.
 
-Optimization decisions should consider:
+Evaluate:
 
-```text id="vqqkqv"
-Latency
-   +
-Resource Usage
-   +
-Retrieval Quality
-   +
-Answer Quality
-   +
-System Complexity
-```
+**Latency + Resource Usage + Retrieval Quality + Answer Quality + System Complexity**
 
-An optimization that produces a small performance improvement while significantly increasing complexity may be rejected.
+A small performance improvement may not justify significant quality loss or disproportionate complexity.
 
----
+## 11.6 Measurement and Observability Rules
 
-## 11.9 Observability Scope Rule
+Performance results depend on hardware, RAM, GPU availability, operating system, model, configuration, corpus, workload, and concurrent activity.
 
-Do not measure everything simply because measurement is possible.
+Document relevant conditions and treat measurements as experimental results for the defined environment, not universal benchmarks.
 
-Instrumentation should answer useful engineering questions.
+Do not measure everything simply because measurement is possible. For each metric, ask:
 
-For every metric, ask:
+> What engineering decision will this metric help us make?
 
-> What decision will this metric help us make?
+If there is no meaningful answer, the metric may not be necessary.
 
-If there is no meaningful answer, the metric may not belong in the system.
+## 11.7 Experiment and Reproducibility Rules
 
----
+Candidate experiments are not commitments. Select experiments based on evidence, learning value, expected impact, and implementation cost.
 
-## 11.10 React Scope Rule
+Record relevant model and configuration, retrieval and chunking settings, corpus, hardware/environment, workload, and optimization changes whenever practical.
 
-The frontend should remain small.
+Classify new ideas as required, useful but optional, future work, or out of scope before expanding the current phase.
 
-If frontend work starts consuming disproportionate project time, the scope should be reduced rather than allowing the UI to become a second major project.
+## 11.8 Learning-Ownership Rule
 
-The primary learning value remains:
+The assistant supports implementation but does not replace the user's understanding.
 
-* RAG engineering
-* Python engineering
-* performance engineering
-* optimization
-* testing
+**Understand → Design Together → Focused Guidance → User Implements → Run → Test → Review → Refine**
 
----
+Avoid large sections of opaque code. The user must own the implementation and understand its important parts.
 
-## 11.11 Experiment Scope Rule
+## 11.9 React Scope Rule
 
-Candidate experiments are not commitments.
+The frontend remains small. If it begins consuming disproportionate time, reduce its scope instead of allowing it to become a second major project.
 
-The project may identify many possible optimizations but implement only the ones supported by evidence.
+The primary learning value remains RAG engineering, Python/OOP, performance engineering, optimization, and testing.
 
-The decision process is:
+## 11.10 Final Scope-Control Principle
 
-```text id="ubt6sm"
-Candidate
-    ↓
-Baseline Evidence
-    ↓
-Learning Value
-    ↓
-Expected Impact
-    ↓
-Implementation Cost
-    ↓
-Select / Reject
-```
+> **Optimize for depth of understanding and engineering quality, not breadth of technologies.**
 
----
+A smaller system that the user can explain, measure, test, optimize, and defend technically is more valuable than a larger system whose architecture and behavior are only partially understood.
 
-## 11.12 Reproducibility Rule
-
-Performance experiments should be conducted under controlled and documented conditions whenever practical.
-
-Record relevant:
-
-* model
-* model configuration
-* retrieval configuration
-* chunking configuration
-* corpus
-* hardware/environment
-* workload
-* optimization change
-
-This makes comparisons more meaningful.
-
----
-
-## 11.13 Learning-Ownership Rule
-
-The assistant should support the implementation but should not replace the user's understanding.
-
-The preferred workflow is:
-
-```text id="x2e4sl"
-Understand
-    ↓
-Design Together
-    ↓
-Small Guidance
-    ↓
-User Implements
-    ↓
-Run
-    ↓
-Test
-    ↓
-Review
-    ↓
-Refine
-```
-
-Large sections of opaque code should be avoided.
-
-The user should own the final implementation and understand the important parts of it.
-
----
-
-## 11.14 No Optimization Before Understanding
-
-A recurring project principle is:
-
-> **Do not optimize what you do not understand.**
-
-Before optimizing a component, the user should understand:
-
-* what the component does
-* how it interacts with the rest of the system
-* what metric represents its behavior
-* what trade-offs an optimization may introduce
-
----
-
-## 11.15 No Scope Expansion During Implementation Without Review
-
-If implementation reveals a potentially valuable new direction, it should first be classified as:
-
-* required
-* useful but optional
-* future work
-* out of scope
-
-It should not automatically become part of the current phase.
-
-This prevents the project from continuously expanding.
-
----
-
-## 11.16 Final Scope-Control Principle
-
-The project should optimize for:
-
-> **Depth of understanding and engineering quality, not breadth of technologies.**
-
-A smaller system that the user can explain, measure, test, optimize, and defend technically is more valuable than a much larger system whose architecture and behavior are only partially understood.
