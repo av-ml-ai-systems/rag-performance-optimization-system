@@ -1,0 +1,178 @@
+NORTHSTAR TECHNOLOGIES
+EMPLOYEE CODE OF CONDUCT
+
+Document ID: HR-POL-001
+Department: Human Resources
+Version: 1.0
+Effective Date: January 1, 2026
+
+1. PURPOSE
+
+Northstar Technologies is committed to maintaining a professional, ethical, respectful, and inclusive working environment. This Code of Conduct establishes the standards of behavior expected from all employees, contractors, and temporary staff.
+
+Every team member is responsible for understanding and following these standards in their daily work.
+
+2. PROFESSIONAL BEHAVIOR
+
+Employees must act honestly, responsibly, and professionally when interacting with colleagues, customers, suppliers, and business partners.
+
+Employees are expected to:
+- Communicate respectfully and constructively.
+- Complete assigned responsibilities with reasonable care and diligence.
+- Respect colleagues' time, contributions, and professional boundaries.
+- Cooperate with team members to achieve shared objectives.
+- Report misconduct or unethical behavior through the appropriate channels.
+
+Employees must not engage in harassment, intimidation, discrimination, bullying, or deliberate actions intended to undermine another person's work.
+
+3. EQUAL OPPORTUNITY AND INCLUSION
+
+Northstar Technologies promotes equal opportunity and a workplace where individuals are treated with dignity and respect.
+
+Employment decisions must be based on relevant qualifications, skills, performance, and business requirements.
+
+Discrimination or harassment based on legally protected characteristics is prohibited. Employees who experience or witness inappropriate conduct should report the situation to Human Resources or through the designated reporting channel.
+
+Reports will be handled as confidentially as reasonably possible, subject to the need to investigate and comply with applicable law.
+
+Retaliation against anyone who raises a concern in good faith or participates in an investigation is prohibited.
+
+4. CONFLICTS OF INTEREST
+
+Employees must avoid situations in which personal interests interfere, or appear to interfere, with their professional responsibilities or Northstar Technologies' legitimate business interests.
+
+Examples of potential conflicts include:
+- Participating in purchasing decisions involving a family member's business.
+- Accepting gifts that could improperly influence a business decision.
+- Using confidential company information for personal financial gain.
+- Maintaining an outside business activity that directly conflicts with assigned responsibilities.
+
+Employees must disclose potential conflicts to their manager or Human Resources as soon as reasonably possible. Disclosed conflicts will be reviewed individually, and appropriate safeguards may be required.
+
+5. CONFIDENTIALITY AND DATA PROTECTION
+
+Employees must protect confidential business information, employee records, customer information, financial data, intellectual property, and other sensitive information accessed through their work.
+
+Employees must:
+- Access information only when authorized and required for their responsibilities.
+- Share confidential information only with authorized recipients.
+- Use approved systems and channels to store and transmit company information.
+- Protect passwords, authentication credentials, and access tokens.
+- Report suspected data breaches or unauthorized access promptly.
+
+Confidential information must not be disclosed to unauthorized individuals, including after employment ends, unless disclosure is legally authorized or required.
+
+6. USE OF COMPANY ASSETS
+
+Company equipment, software, accounts, networks, and other resources must be used responsibly and primarily for legitimate business purposes.
+
+Employees must not:
+- Install unauthorized software on company devices.
+- Share company credentials with other individuals.
+- Use company systems to conduct illegal activities.
+- Deliberately damage, disable, or misuse company assets.
+- Copy or distribute company-owned intellectual property without authorization.
+
+Limited personal use may be permitted when consistent with company policies and when it does not interfere with work, compromise security, or create additional costs.
+
+7. COMMUNICATION AND COLLABORATION
+
+Employees are expected to communicate clearly, respectfully, and professionally across teams and departments.
+
+Workplace disagreements should be addressed constructively. Employees should focus on evidence, business objectives, and practical solutions rather than personal attacks.
+
+Employees must not knowingly distribute false information about colleagues, customers, or the company.
+
+Company communications, including emails, internal messages, reports, and public statements made on behalf of Northstar Technologies, must be accurate and appropriate for their intended audience.
+
+Only authorized representatives may issue official statements on behalf of the company.
+
+8. COMPLIANCE WITH LAWS AND POLICIES
+
+Employees must comply with applicable laws, regulations, contractual obligations, and internal company policies relevant to their responsibilities.
+
+Employees must not falsify records, manipulate financial information, offer improper payments, or knowingly participate in fraudulent activities.
+
+Questions about legal, regulatory, or ethical obligations should be directed to the employee's manager, Human Resources, or the appropriate compliance contact.
+
+Employees who become aware of suspected violations should report them through an appropriate internal channel.
+
+9. HEALTH, SAFETY, AND WELL-BEING
+
+Northstar Technologies seeks to maintain a safe and healthy working environment for employees working on company premises, at customer locations, or remotely.
+
+Employees must follow applicable health and safety procedures, report workplace hazards, and avoid actions that create unreasonable risks to themselves or others.
+
+Threats, workplace violence, and working while impaired in a manner that creates a safety risk are prohibited.
+
+Employees should seek assistance when workplace conditions or responsibilities create significant safety concerns.
+
+10. USE OF ARTIFICIAL INTELLIGENCE TOOLS
+
+Employees may use artificial intelligence tools when their use is authorized and consistent with company policies.
+
+Employees must:
+- Use approved AI tools for company work.
+- Avoid entering confidential, personal, or sensitive company information into unapproved AI systems.
+- Review AI-generated content for accuracy, relevance, and potential bias.
+- Verify important factual claims before relying on AI-generated outputs.
+- Respect intellectual property rights and applicable data protection requirements.
+- Remain accountable for decisions and deliverables produced with AI assistance.
+
+AI-generated content must not be treated as automatically accurate or approved for external distribution.
+
+11. REPORTING CONCERNS
+
+Employees who observe or experience conduct that may violate this Code should report the concern to their manager, Human Resources, or the designated reporting channel.
+
+Reports should include relevant facts, dates, individuals involved, and supporting information when available.
+
+Employees are expected to cooperate honestly with authorized investigations.
+
+Knowingly submitting false allegations or deliberately obstructing an investigation may result in disciplinary action.
+
+Northstar Technologies prohibits retaliation against employees who report concerns in good faith.
+
+12. VIOLATIONS AND DISCIPLINARY ACTION
+
+Violations of this Code may result in corrective or disciplinary action, depending on the nature, severity, frequency, and circumstances of the conduct.
+
+Possible actions include:
+- Coaching or additional training.
+- Formal written warnings.
+- Restriction of access to company systems or resources.
+- Suspension or termination of employment, where appropriate and legally permitted.
+- Referral to relevant authorities when required by law.
+
+Disciplinary decisions will be handled in accordance with applicable law, employment agreements, and relevant company procedures.
+
+13. EMPLOYEE RESPONSIBILITIES
+
+Every employee is responsible for:
+- Reading and understanding this Code.
+- Following applicable company policies.
+- Seeking clarification when requirements are unclear.
+- Reporting suspected violations through appropriate channels.
+- Completing any required ethics or compliance training.
+
+Managers are additionally responsible for promoting ethical conduct, addressing concerns appropriately, and helping employees understand their obligations.
+
+14. POLICY REVIEW
+
+Human Resources is responsible for coordinating periodic reviews of this Code in consultation with relevant departments.
+
+Northstar Technologies may revise this document when business requirements, operational practices, or applicable legal obligations change.
+
+Employees will be informed of material changes through the company's established communication channels.
+
+15. ACKNOWLEDGMENT
+
+Employees may be required to acknowledge that they have received, read, and understood this Code of Conduct.
+
+Acknowledgment does not replace the employee's obligation to comply with applicable laws, contractual requirements, and other company policies.
+
+END OF DOCUMENT
+
+Document ID: HR-POL-001
+Document Owner: Human Resources
+Version: 1.0

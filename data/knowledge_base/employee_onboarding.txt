@@ -1,0 +1,270 @@
+NORTHSTAR TECHNOLOGIES
+EMPLOYEE ONBOARDING GUIDE
+
+Document ID: HR-GUIDE-002
+Department: Human Resources
+Version: 1.0
+Effective Date: January 1, 2026
+
+1. PURPOSE
+
+This guide explains the onboarding process for new employees joining Northstar Technologies. It describes the administrative requirements, initial training, technology setup, workplace policies, and responsibilities that help employees transition successfully into their roles.
+
+The onboarding process is designed to help employees understand company expectations, access the resources they need, and become productive members of their teams.
+
+2. BEFORE THE FIRST WORKING DAY
+
+Human Resources coordinates the preparation required before a new employee starts work.
+
+The onboarding process typically includes:
+- Confirming the employment agreement and start date.
+- Collecting required employment and payroll information.
+- Providing instructions for completing necessary administrative forms.
+- Informing the employee about the first-day schedule.
+- Coordinating computer equipment and system access with the IT department.
+- Informing the employee about their manager and immediate team.
+- Sharing relevant company policies and onboarding materials.
+
+Employees should submit requested documentation through approved company channels and contact Human Resources if they have questions about outstanding requirements.
+
+3. FIRST WORKING DAY
+
+On the first working day, employees participate in an introductory session coordinated by Human Resources or their designated onboarding contact.
+
+The session covers:
+- An introduction to Northstar Technologies and its business activities.
+- The company's organizational structure and departmental responsibilities.
+- Workplace expectations and professional conduct.
+- Working hours, attendance procedures, and leave policies.
+- Health, safety, and emergency procedures.
+- Internal communication channels and collaboration tools.
+- The process for requesting assistance from Human Resources and IT.
+
+The employee's manager should explain the team's responsibilities, current priorities, and expectations for the employee's position.
+
+4. IT EQUIPMENT AND SYSTEM ACCESS
+
+The IT department coordinates the provisioning of approved technology resources required for each role.
+
+Depending on the employee's responsibilities, these resources may include:
+- A company laptop or workstation.
+- A company email account.
+- Access to collaboration and communication applications.
+- Access to approved internal business systems.
+- Required software and development tools.
+- Multifactor authentication and other security controls.
+
+Employees must use their assigned credentials, protect authentication information, and follow company information security policies.
+
+Employees must not share passwords or use another person's account to access company systems.
+
+If equipment is missing, damaged, or not functioning correctly, employees should contact the IT help desk through the designated support channel.
+
+Access to restricted systems must be approved by the appropriate manager or system owner. Employees should receive only the permissions necessary for their responsibilities.
+
+5. REQUIRED TRAINING
+
+New employees must complete the training assigned to their position and department.
+
+Mandatory onboarding training may include:
+- Code of Conduct and professional behavior.
+- Information security and data protection.
+- Workplace health and safety.
+- Prevention of harassment and discrimination.
+- Confidentiality and appropriate information handling.
+- Responsible use of company technology and artificial intelligence tools.
+
+Additional training may be required for employees who handle financial information, customer records, confidential business data, or specialized technical systems.
+
+Employees are responsible for completing required training within the deadlines communicated by Human Resources or their manager.
+
+Training completion may be recorded in the company's learning management system or another approved tracking system.
+
+6. TEAM INTRODUCTION AND ROLE EXPECTATIONS
+
+The employee's manager is responsible for introducing the employee to relevant colleagues and explaining how the team operates.
+
+During the initial onboarding period, the manager should discuss:
+- The employee's primary responsibilities.
+- Short-term objectives and expected deliverables.
+- Team workflows and communication practices.
+- Project assignments and relevant documentation.
+- Performance expectations and feedback processes.
+- Dependencies on other teams or departments.
+- The procedures for escalating questions or operational problems.
+
+Employees should ask questions when responsibilities or expectations are unclear.
+
+Managers should provide appropriate guidance, access to necessary resources, and regular opportunities to discuss progress.
+
+7. WORKING HOURS AND ATTENDANCE
+
+Employees must follow the working hours, attendance procedures, and scheduling arrangements applicable to their positions.
+
+Department-specific arrangements may vary according to business requirements, employment agreements, and approved workplace policies.
+
+Employees who expect to arrive late, miss scheduled work, or require an absence should notify their manager through the appropriate communication channel as soon as reasonably possible.
+
+Employees must follow the company's leave request and approval procedures.
+
+Questions about working hours, public holidays, paid leave, or attendance records should be directed to Human Resources or the employee's manager.
+
+8. REMOTE AND HYBRID WORK
+
+Employees whose positions permit remote or hybrid work must follow the arrangements approved for their roles.
+
+Remote and hybrid employees are expected to:
+- Remain available during agreed working hours.
+- Attend required meetings and team activities.
+- Protect confidential information when working outside company premises.
+- Use approved devices, applications, and network connections.
+- Maintain appropriate communication with their managers and colleagues.
+- Follow the company's information security and equipment policies.
+
+Employees must not assume that a remote or hybrid arrangement is automatically available. They should confirm their approved working arrangement with their manager or Human Resources.
+
+Any changes to an approved arrangement must follow the applicable company procedures.
+
+9. PAYROLL AND EMPLOYEE BENEFITS
+
+Human Resources and the payroll team coordinate the administrative processes associated with employee compensation and benefits.
+
+During onboarding, employees should receive information about:
+- Payroll schedules and payment procedures.
+- Required tax and payroll documentation.
+- Applicable employee benefits.
+- Health and insurance arrangements, where applicable.
+- Leave entitlements and request procedures.
+- The process for reporting errors in payroll or employment records.
+
+Employees must keep their personal and payment information accurate and notify Human Resources of relevant changes through approved channels.
+
+Questions about individual compensation, deductions, benefits eligibility, or payroll discrepancies should be directed to the appropriate Human Resources or payroll contact.
+
+Specific benefits and entitlements depend on the employee's employment agreement and applicable company policies.
+
+10. INFORMATION SECURITY AND CONFIDENTIALITY
+
+Employees must protect company information from unauthorized access, disclosure, alteration, or loss.
+
+During onboarding, employees must become familiar with the company's information security policies and their responsibilities for handling confidential information.
+
+Employees must:
+- Use approved systems to store and share work-related information.
+- Verify recipients before sending sensitive information.
+- Lock devices when leaving them unattended.
+- Report suspected phishing messages or suspicious system activity.
+- Avoid uploading confidential information to unapproved external services.
+- Follow retention and disposal requirements for company records.
+
+Suspected security incidents must be reported promptly through the designated IT or security reporting channel.
+
+Employees must continue to protect confidential information after their employment ends, in accordance with applicable legal and contractual obligations.
+
+11. RESPONSIBLE USE OF ARTIFICIAL INTELLIGENCE
+
+Northstar Technologies may authorize employees to use artificial intelligence tools for appropriate business activities.
+
+Employees must use only approved tools when handling company information and must comply with relevant privacy, security, and intellectual property requirements.
+
+Employees must not enter confidential company information, personal data, credentials, or restricted business records into unapproved AI services.
+
+AI-generated material must be reviewed for factual accuracy, relevance, potential bias, and suitability before being used in business decisions or distributed externally.
+
+Employees remain responsible for the quality and accuracy of their work, even when AI tools assist with its preparation.
+
+Questions about whether an AI tool is approved should be directed to the employee's manager or the relevant IT or security contact.
+
+12. WORKPLACE RESOURCES AND SUPPORT
+
+Employees should use the company's designated support channels to request assistance.
+
+Human Resources handles questions concerning employment documentation, benefits, leave, workplace policies, and employee relations.
+
+The IT help desk handles technical problems involving company equipment, software, account access, and approved business applications.
+
+Managers handle questions about job responsibilities, priorities, performance expectations, and team workflows.
+
+Finance handles designated questions concerning expense submissions, reimbursement procedures, and other assigned financial processes.
+
+Employees should include a clear description of the problem when submitting a support request and provide relevant information without exposing passwords or unnecessary sensitive data.
+
+Urgent security incidents should be reported immediately through the designated security reporting procedure.
+
+13. FIRST 30 DAYS
+
+During the first 30 days, employees should focus on understanding their responsibilities, learning team workflows, completing required training, and establishing effective working relationships.
+
+A typical first-month plan includes:
+
+Week 1:
+- Complete introductory sessions and administrative requirements.
+- Confirm access to required systems and equipment.
+- Meet the manager and immediate team.
+- Review relevant policies and documentation.
+
+Week 2:
+- Complete assigned mandatory training.
+- Learn the team's principal tools and workflows.
+- Review current projects and departmental objectives.
+- Clarify initial responsibilities and priorities.
+
+Weeks 3 and 4:
+- Begin contributing to assigned tasks.
+- Request feedback on early deliverables.
+- Identify remaining training or access requirements.
+- Discuss progress, questions, and development needs with the manager.
+
+The exact schedule may vary according to the role, department, and operational requirements.
+
+14. ONBOARDING CHECKLIST
+
+Employees should confirm completion of the following activities with their manager or the appropriate support team:
+
+Administrative requirements:
+- Employment documentation completed.
+- Payroll information submitted.
+- Applicable benefits information reviewed.
+
+Technology:
+- Company equipment received, where applicable.
+- Email and required system access confirmed.
+- Authentication and security requirements configured.
+
+Training and policies:
+- Code of Conduct reviewed.
+- Information security training completed.
+- Other mandatory training completed.
+- Relevant departmental policies reviewed.
+
+Team integration:
+- Manager and team introductions completed.
+- Role responsibilities discussed.
+- Initial objectives established.
+- First-month progress meeting scheduled.
+
+Some activities may require approval or confirmation from Human Resources, IT, or the employee's manager.
+
+15. FEEDBACK AND CONTINUOUS IMPROVEMENT
+
+Northstar Technologies encourages employees to provide feedback about their onboarding experience.
+
+Employees may raise questions or suggest improvements to Human Resources or their manager.
+
+Managers and onboarding contacts should address reasonable concerns and help employees identify the resources needed to perform their work effectively.
+
+The company may periodically review its onboarding procedures to improve clarity, consistency, and employee experience.
+
+16. DOCUMENT OWNERSHIP AND REVIEW
+
+Human Resources is responsible for maintaining this guide in coordination with relevant departments.
+
+The guide may be updated when company procedures, technology systems, organizational requirements, or applicable legal obligations change.
+
+Employees should consult the current approved version of the guide and contact Human Resources when they need clarification.
+
+END OF DOCUMENT
+
+Document ID: HR-GUIDE-002
+Document Owner: Human Resources
+Version: 1.0
