@@ -39,6 +39,8 @@ strict = true
 [tool.pyright]
 include = ["src", "tests"]
 exclude = [
+    "**/node_modules",
+    "**/.*",
     "**/__pycache__",
     ".venv",
 ]
@@ -51,3 +53,8 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/rag_performance"]
+
+[tool.pytest.ini_options]
+markers = [
+    "integration: tests that verify interactions with external services or multiple components",
+]
