@@ -19,3 +19,7 @@ req.txt
 
 Golden Rules.md
 Phase Evolution.md
+
+# Local RAG vector database and backup
+data/chroma_db/
+data/chroma_db_backup/
