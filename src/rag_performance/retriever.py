@@ -4,9 +4,14 @@
 # Description: Coordinate document retrieval through an injected VectorStore
 # while keeping retrieval configuration and input validation centralized.
 
+from __future__ import annotations
+
 from langchain_core.documents import Document
 
+from rag_performance.logging import get_logger
 from rag_performance.vector_store import VectorStore
+
+logger = get_logger(__name__)
 
 
 class Retriever:
@@ -27,9 +32,20 @@ class Retriever:
     def retrieve(self, query: str) -> list[Document]:
         """Return the most relevant documents for a non-empty query."""
         if not query.strip():
+            logger.warning("Retrieval rejected: query must not be empty")
             raise ValueError("query must not be empty.")
 
-        return self._vector_store.similarity_search(
+        logger.debug("Executing similarity search (k=%d)", self._k)
+
+        documents = self._vector_store.similarity_search(
             query=query,
             k=self._k,
         )
+
+        logger.info(
+            "Vector search completed (documents_retrieved=%d, k=%d)",
+            len(documents),
+            self._k,
+        )
+
+        return documents

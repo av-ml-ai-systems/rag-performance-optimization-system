@@ -4,6 +4,12 @@
 # Description: Build context-grounded prompts that encourage direct,
 # complete, relevant, and appropriately structured answers.
 
+from __future__ import annotations
+
+from rag_performance.logging import get_logger
+
+logger = get_logger(__name__)
+
 
 class PromptBuilder:
     """Build prompts that ground answers in retrieved context."""
@@ -11,12 +17,14 @@ class PromptBuilder:
     def build(self, query: str, context: str) -> str:
         """Construct a prompt from a user query and context."""
         if not query.strip():
+            logger.warning("Prompt construction rejected: query must not be empty")
             raise ValueError("query must not be empty.")
 
         if not context.strip():
+            logger.warning("Prompt construction rejected: context must not be empty")
             raise ValueError("context must not be empty.")
 
-        return (
+        prompt = (
             "You are a helpful assistant that answers questions using "
             "the provided context.\n"
             "Follow these instructions:\n"
@@ -40,3 +48,10 @@ class PromptBuilder:
             f"Question:\n{query.strip()}\n\n"
             "Answer:"
         )
+
+        logger.info(
+            "Prompt construction completed (prompt_size_chars=%d)",
+            len(prompt),
+        )
+
+        return prompt
