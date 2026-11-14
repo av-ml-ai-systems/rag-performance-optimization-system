@@ -29,6 +29,11 @@ class Retriever:
         self._vector_store = vector_store
         self._k = k
 
+    @property
+    def k(self) -> int:
+        """Return the configured retrieval limit k."""
+        return self._k
+
     def retrieve(self, query: str) -> list[Document]:
         """Return the most relevant documents for a non-empty query."""
         if not query.strip():

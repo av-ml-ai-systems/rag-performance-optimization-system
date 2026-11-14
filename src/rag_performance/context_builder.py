@@ -16,9 +16,19 @@ logger = get_logger(__name__)
 class ContextBuilder:
     """Build context from retrieved documents."""
 
+    def __init__(self) -> None:
+        """Initialize the context builder with default metrics state."""
+        self._last_chunks_used: int = 0
+
+    @property
+    def last_chunks_used(self) -> int:
+        """Return number of chunks used in the most recent build."""
+        return self._last_chunks_used
+
     def build(self, documents: list[Document]) -> str:
         """Format documents into a context string with source attribution."""
         if not documents:
+            self._last_chunks_used = 0
             logger.warning("No documents provided for context construction")
             return ""
 
@@ -34,11 +44,12 @@ class ContextBuilder:
 
             context_sections.append(f"[Document {index} | Source: {source}]\n{content}")
 
+        self._last_chunks_used = len(context_sections)
         context_result = "\n\n".join(context_sections)
 
         logger.info(
             "Context construction completed (chunks_used=%d, context_size_chars=%d)",
-            len(context_sections),
+            self._last_chunks_used,
             len(context_result),
         )
 

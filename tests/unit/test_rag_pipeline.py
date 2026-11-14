@@ -3,7 +3,7 @@
 # Purpose: Validate RAG pipeline orchestration in isolation.
 # Description: Verify component call order, generated answers, input validation,
 # behavior when retrieval produces no usable context, request_id context lifecycle,
-# and end-to-end structured log correlation across components.
+# end-to-end log correlation, and consolidated RequestTelemetry capture.
 
 from __future__ import annotations
 
@@ -25,9 +25,12 @@ from rag_performance.retriever import Retriever
 def components() -> tuple[MagicMock, MagicMock, MagicMock, MagicMock]:
     """Provide mocked components for isolated pipeline tests."""
     retriever = MagicMock(spec=Retriever)
+    retriever.k = 4
     context_builder = MagicMock(spec=ContextBuilder)
+    context_builder.last_chunks_used = 1
     prompt_builder = MagicMock(spec=PromptBuilder)
     answer_generator = MagicMock(spec=AnswerGenerator)
+    answer_generator.model_name = "llama3.2:3b"
 
     return retriever, context_builder, prompt_builder, answer_generator
 
@@ -263,6 +266,104 @@ def test_query_emits_structured_logs_with_request_id(
     for record in pipeline_records:
         assert getattr(record, "request_id", None) == "traceable-id-999"
 
-    # Verify data privacy: raw query text must never appear in log messages
     for record in pipeline_records:
         assert "Sample query" not in record.message
+
+
+def test_query_populates_consolidated_telemetry(
+    components: tuple[MagicMock, MagicMock, MagicMock, MagicMock],
+) -> None:
+    """Verify successful query populates complete telemetry record and schema."""
+    retriever, context_builder, prompt_builder, answer_generator = components
+    pipeline = RAGPipeline(
+        retriever=retriever,
+        context_builder=context_builder,
+        prompt_builder=prompt_builder,
+        answer_generator=answer_generator,
+    )
+
+    retriever.retrieve.return_value = [Document(page_content="Context text.")]
+    context_builder.build.return_value = "Formatted context content."
+    context_builder.last_chunks_used = 1
+    prompt_builder.build.return_value = "Prepared prompt."
+    answer_generator.generate.return_value = "Final answer."
+
+    pipeline.query("What is RAG?", request_id="telemetry-req-001")
+
+    telemetry = pipeline.last_telemetry
+    assert telemetry is not None
+    assert telemetry.request_id == "telemetry-req-001"
+    assert telemetry.total_latency_ms >= 0.0
+
+    # Retrieval assertions
+    assert telemetry.retrieval.k_configured == 4
+    assert telemetry.retrieval.documents_retrieved == 1
+    assert telemetry.retrieval.status == "success"
+    assert telemetry.retrieval.latency_ms >= 0.0
+
+    # Context assertions
+    assert telemetry.context.chunks_used == 1
+    assert telemetry.context.context_size_chars == len("Formatted context content.")
+    assert telemetry.context.context_size_tokens_estimated == (
+        len("Formatted context content.") // 4
+    )
+    assert telemetry.context.latency_ms >= 0.0
+
+    # Prompt & LLM assertions
+    assert telemetry.prompt.latency_ms >= 0.0
+    assert telemetry.llm.model == "llama3.2:3b"
+    assert telemetry.llm.status == "success"
+    assert telemetry.llm.latency_ms >= 0.0
+
+    # Error assertions
+    assert telemetry.error.occurred is False
+    assert telemetry.error.stage is None
+
+    # Serialization schema validation
+    serialized = telemetry.to_dict()
+    assert serialized["request_id"] == "telemetry-req-001"
+    assert "retrieval" in serialized
+    assert "context" in serialized
+    assert "prompt" in serialized
+    assert "llm" in serialized
+    assert "error" in serialized
+    assert "total_latency_ms" in serialized
+
+
+def test_query_preserves_partial_telemetry_on_failure(
+    components: tuple[MagicMock, MagicMock, MagicMock, MagicMock],
+) -> None:
+    """Verify partial telemetry and error details are preserved on component crash."""
+    retriever, context_builder, prompt_builder, answer_generator = components
+    pipeline = RAGPipeline(
+        retriever=retriever,
+        context_builder=context_builder,
+        prompt_builder=prompt_builder,
+        answer_generator=answer_generator,
+    )
+
+    retriever.retrieve.return_value = [Document(page_content="Valid chunk")]
+    context_builder.build.return_value = "Usable context"
+    context_builder.last_chunks_used = 1
+    prompt_builder.build.return_value = "Ready prompt"
+    answer_generator.generate.side_effect = RuntimeError("Ollama connection refused")
+
+    with pytest.raises(RuntimeError, match="Ollama connection refused"):
+        pipeline.query("Sample question", request_id="failing-req-002")
+
+    telemetry = pipeline.last_telemetry
+    assert telemetry is not None
+    assert telemetry.request_id == "failing-req-002"
+
+    # Prior stages must be preserved
+    assert telemetry.retrieval.status == "success"
+    assert telemetry.retrieval.documents_retrieved == 1
+    assert telemetry.context.chunks_used == 1
+    assert telemetry.context.context_size_chars == len("Usable context")
+
+    # Failing stage must record failure
+    assert telemetry.llm.status == "failed"
+    assert telemetry.error.occurred is True
+    assert telemetry.error.stage == "llm"
+    assert "Ollama connection refused" in (telemetry.error.message or "")
+    assert telemetry.total_latency_ms >= 0.0

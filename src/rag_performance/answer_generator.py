@@ -28,6 +28,11 @@ class AnswerGenerator:
         self._model_name = model.strip()
         self._model = ChatOllama(model=self._model_name)
 
+    @property
+    def model_name(self) -> str:
+        """Return the configured model name."""
+        return self._model_name
+
     def generate(self, prompt: str) -> str:
         """Generate an answer from a non-empty prompt."""
         if not prompt.strip():
