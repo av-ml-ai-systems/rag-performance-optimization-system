@@ -3,7 +3,7 @@
 # Purpose: Orchestrate the complete RAG query pipeline.
 # Description: Coordinate retrieval, context construction, prompt preparation,
 # and answer generation with request correlation, monotonic stage timing,
-# operational metadata capture, and consolidated RequestTelemetry.
+# operational metadata capture, token tracking, and consolidated telemetry.
 
 from __future__ import annotations
 
@@ -138,6 +138,13 @@ class RAGPipeline:
                     latencies.generation_ms = timer.elapsed_ms
                     telemetry.llm.latency_ms = timer.elapsed_ms
                     telemetry.llm.status = "success"
+
+                    # Populate extracted metrics from AnswerGenerator
+                    telemetry.llm.ttft_ms = self._answer_generator.last_ttft_ms
+                    tokens = self._answer_generator.last_token_usage
+                    telemetry.llm.prompt_tokens = tokens.prompt_tokens
+                    telemetry.llm.generation_tokens = tokens.generation_tokens
+                    telemetry.llm.total_tokens = tokens.total_tokens
 
                     self._logger.info(
                         "Answer generation completed (latency_ms=%.2f)",

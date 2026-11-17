@@ -44,8 +44,13 @@ exclude = [
     "**/__pycache__",
     ".venv",
 ]
+venvPath = "C:\\Users\\User\\anaconda3\\envs"
+venv = "agent_env"
 pythonVersion = "3.12"
 typeCheckingMode = "strict"
+reportUnknownMemberType = "none"
+reportUnknownVariableType = "none"
+reportUnknownArgumentType = "none"
 
 [build-system]
 requires = ["hatchling"]

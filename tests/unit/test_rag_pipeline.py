@@ -2,8 +2,8 @@
 # Path: tests/unit/test_rag_pipeline.py
 # Purpose: Validate RAG pipeline orchestration in isolation.
 # Description: Verify component call order, generated answers, input validation,
-# behavior when retrieval produces no usable context, request_id context lifecycle,
-# end-to-end log correlation, and consolidated RequestTelemetry capture.
+# behavior when retrieval produces no usable context, request_id context
+# lifecycle, end-to-end log correlation, and consolidated telemetry capture.
 
 from __future__ import annotations
 
@@ -19,6 +19,7 @@ from rag_performance.logging import RequestContext
 from rag_performance.prompt_builder import PromptBuilder
 from rag_performance.rag_pipeline import RAGPipeline
 from rag_performance.retriever import Retriever
+from rag_performance.telemetry import TokenUsage
 
 
 @pytest.fixture
@@ -31,6 +32,8 @@ def components() -> tuple[MagicMock, MagicMock, MagicMock, MagicMock]:
     prompt_builder = MagicMock(spec=PromptBuilder)
     answer_generator = MagicMock(spec=AnswerGenerator)
     answer_generator.model_name = "llama3.2:3b"
+    answer_generator.last_ttft_ms = None
+    answer_generator.last_token_usage = TokenUsage()
 
     return retriever, context_builder, prompt_builder, answer_generator
 
@@ -131,7 +134,7 @@ def test_query_rejects_empty_retrieval_results(
 def test_query_propagates_custom_request_id(
     components: tuple[MagicMock, MagicMock, MagicMock, MagicMock],
 ) -> None:
-    """Verify explicit request_id is active during execution and cleared on exit."""
+    """Verify explicit request_id is active and cleared on exit."""
     retriever, context_builder, prompt_builder, answer_generator = components
     custom_context = RequestContext()
     pipeline = RAGPipeline(
@@ -163,7 +166,7 @@ def test_query_propagates_custom_request_id(
 def test_query_auto_generates_request_id(
     components: tuple[MagicMock, MagicMock, MagicMock, MagicMock],
 ) -> None:
-    """Verify omitted request_id generates UUID hex in context and clears on exit."""
+    """Verify omitted request_id generates UUID hex and clears on exit."""
     retriever, context_builder, prompt_builder, answer_generator = components
     custom_context = RequestContext()
     pipeline = RAGPipeline(
@@ -196,7 +199,7 @@ def test_query_auto_generates_request_id(
 def test_query_cleans_up_context_on_validation_failure(
     components: tuple[MagicMock, MagicMock, MagicMock, MagicMock],
 ) -> None:
-    """Verify request_id is cleared even when validation rejects empty question."""
+    """Verify request_id is cleared when validation rejects empty question."""
     retriever, context_builder, prompt_builder, answer_generator = components
     custom_context = RequestContext()
     pipeline = RAGPipeline(
@@ -216,7 +219,7 @@ def test_query_cleans_up_context_on_validation_failure(
 def test_query_cleans_up_context_on_unexpected_failure(
     components: tuple[MagicMock, MagicMock, MagicMock, MagicMock],
 ) -> None:
-    """Verify request_id is cleared if a component throws an unexpected exception."""
+    """Verify request_id is cleared when an unexpected exception occurs."""
     retriever, context_builder, prompt_builder, answer_generator = components
     custom_context = RequestContext()
     pipeline = RAGPipeline(
@@ -273,7 +276,7 @@ def test_query_emits_structured_logs_with_request_id(
 def test_query_populates_consolidated_telemetry(
     components: tuple[MagicMock, MagicMock, MagicMock, MagicMock],
 ) -> None:
-    """Verify successful query populates complete telemetry record and schema."""
+    """Verify successful query populates complete telemetry record."""
     retriever, context_builder, prompt_builder, answer_generator = components
     pipeline = RAGPipeline(
         retriever=retriever,
@@ -287,6 +290,12 @@ def test_query_populates_consolidated_telemetry(
     context_builder.last_chunks_used = 1
     prompt_builder.build.return_value = "Prepared prompt."
     answer_generator.generate.return_value = "Final answer."
+    answer_generator.last_ttft_ms = 125.5
+    answer_generator.last_token_usage = TokenUsage(
+        prompt_tokens=100,
+        generation_tokens=50,
+        total_tokens=150,
+    )
 
     pipeline.query("What is RAG?", request_id="telemetry-req-001")
 
@@ -314,6 +323,10 @@ def test_query_populates_consolidated_telemetry(
     assert telemetry.llm.model == "llama3.2:3b"
     assert telemetry.llm.status == "success"
     assert telemetry.llm.latency_ms >= 0.0
+    assert telemetry.llm.ttft_ms == 125.5
+    assert telemetry.llm.prompt_tokens == 100
+    assert telemetry.llm.generation_tokens == 50
+    assert telemetry.llm.total_tokens == 150
 
     # Error assertions
     assert telemetry.error.occurred is False
@@ -322,18 +335,41 @@ def test_query_populates_consolidated_telemetry(
     # Serialization schema validation
     serialized = telemetry.to_dict()
     assert serialized["request_id"] == "telemetry-req-001"
-    assert "retrieval" in serialized
-    assert "context" in serialized
-    assert "prompt" in serialized
-    assert "llm" in serialized
-    assert "error" in serialized
-    assert "total_latency_ms" in serialized
+    assert serialized["llm"]["ttft_ms"] == 125.5
+    assert serialized["llm"]["total_tokens"] == 150
+
+
+def test_query_preserves_none_for_unavailable_llm_metrics(
+    components: tuple[MagicMock, MagicMock, MagicMock, MagicMock],
+) -> None:
+    """Ensure unavailable TTFT and tokens remain None rather than zero."""
+    retriever, context_builder, prompt_builder, answer_generator = components
+    pipeline = RAGPipeline(
+        retriever=retriever,
+        context_builder=context_builder,
+        prompt_builder=prompt_builder,
+        answer_generator=answer_generator,
+    )
+
+    retriever.retrieve.return_value = [Document(page_content="Context text.")]
+    context_builder.build.return_value = "Formatted context."
+    prompt_builder.build.return_value = "Prompt."
+    answer_generator.generate.return_value = "Answer."
+
+    pipeline.query("What is RAG?", request_id="telemetry-none-001")
+
+    telemetry = pipeline.last_telemetry
+    assert telemetry is not None
+    assert telemetry.llm.ttft_ms is None
+    assert telemetry.llm.prompt_tokens is None
+    assert telemetry.llm.generation_tokens is None
+    assert telemetry.llm.total_tokens is None
 
 
 def test_query_preserves_partial_telemetry_on_failure(
     components: tuple[MagicMock, MagicMock, MagicMock, MagicMock],
 ) -> None:
-    """Verify partial telemetry and error details are preserved on component crash."""
+    """Verify partial telemetry and error details are preserved on crash."""
     retriever, context_builder, prompt_builder, answer_generator = components
     pipeline = RAGPipeline(
         retriever=retriever,

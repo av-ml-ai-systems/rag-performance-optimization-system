@@ -2,7 +2,7 @@
 # Path: src/rag_performance/telemetry.py
 # Purpose: Performance timing and measurement primitives for RAG observability.
 # Description: Provides a monotonic ExecutionTimer, component-level metrics
-# models, and a consolidated RequestTelemetry record for the RAG workflow.
+# models, token usage structures, and consolidated RequestTelemetry.
 
 from __future__ import annotations
 
@@ -11,6 +11,15 @@ from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from types import TracebackType
 from typing import Any
+
+
+@dataclass
+class TokenUsage:
+    """Store input, output, and total token counts from LLM generation."""
+
+    prompt_tokens: int | None = None
+    generation_tokens: int | None = None
+    total_tokens: int | None = None
 
 
 @dataclass
