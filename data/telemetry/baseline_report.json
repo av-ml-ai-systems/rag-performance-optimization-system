@@ -1,0 +1,113 @@
+{
+  "requests": {
+    "total": 12,
+    "successful": 12,
+    "failed": 0
+  },
+  "latencies_ms": {
+    "total": {
+      "count": 12,
+      "mean": 64058.5896750002,
+      "median": 67242.75210000087,
+      "minimum": 29356.87020000114,
+      "maximum": 79335.7743000015,
+      "std_dev": 15412.812573532276,
+      "p90": 78683.30490000008,
+      "p95": null
+    },
+    "retrieval": {
+      "count": 12,
+      "mean": 166.64875833339465,
+      "median": 101.99550000106683,
+      "minimum": 75.6519999995362,
+      "maximum": 854.5057999981509,
+      "std_dev": 218.1667575248315,
+      "p90": 162.47308000092744,
+      "p95": null
+    },
+    "context": {
+      "count": 12,
+      "mean": 0.028091666839221336,
+      "median": 0.0259000007645227,
+      "minimum": 0.02099999983329326,
+      "maximum": 0.04909999915980734,
+      "std_dev": 0.007558794613022903,
+      "p90": 0.03319000061310362,
+      "p95": null
+    },
+    "prompt": {
+      "count": 12,
+      "mean": 0.00857499981066212,
+      "median": 0.007849999747122638,
+      "minimum": 0.006400001439033076,
+      "maximum": 0.014299999747890979,
+      "std_dev": 0.002332818356175804,
+      "p90": 0.011349997657816857,
+      "p95": null
+    },
+    "generation": {
+      "count": 12,
+      "mean": 63891.86027499969,
+      "median": 67129.97684999937,
+      "minimum": 29281.09840000252,
+      "maximum": 79217.29829999822,
+      "std_dev": 15344.601910169426,
+      "p90": 78512.15965999909,
+      "p95": null
+    },
+    "ttft": {
+      "count": 0,
+      "mean": null,
+      "median": null,
+      "minimum": null,
+      "maximum": null,
+      "std_dev": null,
+      "p90": null,
+      "p95": null
+    }
+  },
+  "tokens": {
+    "prompt_tokens": {
+      "count": 12,
+      "mean": 965.3333333333334,
+      "median": 966.0,
+      "minimum": 904.0,
+      "maximum": 1011.0,
+      "std_dev": 35.20158398639918,
+      "p90": 1004.7,
+      "p95": null
+    },
+    "generation_tokens": {
+      "count": 12,
+      "mean": 146.0,
+      "median": 155.5,
+      "minimum": 55.0,
+      "maximum": 242.0,
+      "std_dev": 55.42890614439037,
+      "p90": 194.2,
+      "p95": null
+    },
+    "total_tokens": {
+      "count": 12,
+      "mean": 1111.3333333333333,
+      "median": 1128.0,
+      "minimum": 1025.0,
+      "maximum": 1207.0,
+      "std_dev": 68.67490388957545,
+      "p90": 1196.4,
+      "p95": null
+    }
+  },
+  "context": {
+    "context_size_chars": {
+      "count": 12,
+      "mean": 4319.5,
+      "median": 4368.5,
+      "minimum": 4053.0,
+      "maximum": 4485.0,
+      "std_dev": 146.27775571898079,
+      "p90": 4448.7,
+      "p95": null
+    }
+  }
+}
